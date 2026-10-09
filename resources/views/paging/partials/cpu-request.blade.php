@@ -1,0 +1,1 @@
+<livewire:page-request :scenario-id="$snapshot['scenario']->id ?? null" :process-id="$snapshot['selected_process']->id ?? null" :key="'page-request-'.($snapshot['scenario']->id ?? 'none').'-'.($snapshot['selected_process']->id ?? 'none')" />

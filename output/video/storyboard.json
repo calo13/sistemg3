@@ -1,0 +1,390 @@
+{
+  "duration_seconds": 180,
+  "width": 1280,
+  "height": 720,
+  "scenes": [
+    {
+      "title": "MemoryLab · Sistemas Operativos 1",
+      "caption": "Universidad Mariano Gálvez · Ingeniería en Sistemas. Grupo 3 presenta un simulador interactivo de administración de memoria.",
+      "seconds": 8,
+      "route": "/dashboard",
+      "media": [
+        {
+          "file": "capturas/01-1.png",
+          "width": 953,
+          "height": 171.875,
+          "selector": "[aria-labelledby=academic-title]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Integrantes del proyecto académico",
+      "caption": "La aplicación presenta a los cinco integrantes y sus carnés. Los módulos organizan escenarios, procesos y estructuras de memoria.",
+      "seconds": 6,
+      "route": "/dashboard",
+      "media": [
+        {
+          "file": "capturas/02-1.png",
+          "width": 558,
+          "height": 387,
+          "selector": "#equipo",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Escenario real de paginación",
+      "caption": "RAM: 16 KB, páginas: 1 KB. Chrome tiene cuatro páginas: P0 y P1 están presentes; P2 y P3 permanecen en DISCO.",
+      "seconds": 10,
+      "route": "/presentation",
+      "media": [
+        {
+          "file": "capturas/03-1.png",
+          "width": 714.25,
+          "height": 383.75,
+          "selector": "[data-paging-panel=pages]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/03-2.png",
+          "width": 723,
+          "height": 351.671875,
+          "selector": "[data-paging-panel=ram]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "PAGE_HIT: la página ya está presente",
+      "caption": "La CPU solicita Chrome P0. La tabla apunta al marco 0: el acceso se resuelve sin cargar otra página ni aumentar los Page Faults.",
+      "seconds": 10,
+      "route": "/presentation",
+      "media": [
+        {
+          "file": "capturas/04-1.png",
+          "width": 474.75,
+          "height": 130,
+          "selector": "[data-cpu-result]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/04-2.png",
+          "width": 723,
+          "height": 383.75,
+          "selector": "[data-paging-panel=pages]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Paso 1 · La CPU solicita P3",
+      "caption": "El modo paso a paso registra la solicitud. La RAM conserva sus cinco marcos ocupados mientras se explica el recorrido.",
+      "seconds": 8,
+      "route": "/presentation",
+      "media": [
+        {
+          "file": "capturas/05-1.png",
+          "width": 474.75,
+          "height": 285.734375,
+          "selector": "[data-memory-flow]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/05-2.png",
+          "width": 723,
+          "height": 351.671875,
+          "selector": "[data-paging-panel=ram]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Paso 3 · P3 no está presente",
+      "caption": "La tabla confirma que Chrome P3 está en DISCO. Se identifica un Page Fault; todavía no se modifica la RAM.",
+      "seconds": 8,
+      "route": "/presentation",
+      "media": [
+        {
+          "file": "capturas/06-1.png",
+          "width": 474.75,
+          "height": 311.125,
+          "selector": "[data-memory-flow]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/06-2.png",
+          "width": 723,
+          "height": 351.671875,
+          "selector": "[data-paging-panel=ram]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Paso 5 · Buscar un marco disponible",
+      "caption": "El simulador comprueba los marcos libres. La carga utiliza el primer marco libre; si la RAM se llena, aplica reemplazo FIFO.",
+      "seconds": 8,
+      "route": "/presentation",
+      "media": [
+        {
+          "file": "capturas/07-1.png",
+          "width": 474.75,
+          "height": 333.125,
+          "selector": "[data-memory-flow]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/07-2.png",
+          "width": 723,
+          "height": 351.671875,
+          "selector": "[data-paging-panel=ram]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Paso 6 · Cargar desde DISCO a RAM",
+      "caption": "P3 se carga en el marco 5. Se registran PAGE_FAULT y PAGE_LOADED: ahora hay seis marcos ocupados y seis fallos acumulados.",
+      "seconds": 10,
+      "route": "/presentation",
+      "media": [
+        {
+          "file": "capturas/08-1.png",
+          "width": 474.75,
+          "height": 333.125,
+          "selector": "[data-memory-flow]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/08-2.png",
+          "width": 723,
+          "height": 351.671875,
+          "selector": "[data-paging-panel=ram]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Paso 8 · Acceso completado",
+      "caption": "La tabla y la RAM muestran el mismo estado: Chrome P3 está presente en el marco 5. El acceso queda registrado una sola vez.",
+      "seconds": 8,
+      "route": "/presentation",
+      "media": [
+        {
+          "file": "capturas/09-1.png",
+          "width": 474.75,
+          "height": 152,
+          "selector": "[data-cpu-result]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/09-2.png",
+          "width": 723,
+          "height": 383.75,
+          "selector": "[data-paging-panel=pages]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "RAM y almacenamiento secundario",
+      "caption": "Cada marco guarda una página de un proceso. Las páginas no residentes se conservan en el almacenamiento secundario simulado.",
+      "seconds": 10,
+      "route": "/presentation",
+      "media": [
+        {
+          "file": "capturas/10-1.png",
+          "width": 723,
+          "height": 351.671875,
+          "selector": "[data-paging-panel=ram]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/10-2.png",
+          "width": 723,
+          "height": 121.875,
+          "selector": "[data-paging-panel=secondary]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Traducción: página y offset",
+      "caption": "3500 ÷ 1024 da página 3 y offset 428. La tabla asigna el marco 5: dirección física = 5 × 1024 + 428 = 5548 bytes.",
+      "seconds": 12,
+      "route": "/traduccion",
+      "media": [
+        {
+          "file": "capturas/11-1.png",
+          "width": 558,
+          "height": 145.875,
+          "selector": "[data-translation-result]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Segmentación: código, datos, pila y heap",
+      "caption": "Los segmentos tienen tamaño variable y guardan su base y límite. El proceso Editor ocupa cuatro intervalos de la RAM.",
+      "seconds": 10,
+      "route": "/segmentacion",
+      "media": [
+        {
+          "file": "capturas/12-1.png",
+          "width": 953,
+          "height": 353.875,
+          "selector": "[data-segment-table]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/12-2.png",
+          "width": 968,
+          "height": 492.25,
+          "selector": "[data-segment-map]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Acceso válido: base + offset",
+      "caption": "Código comienza en la base 1000 y su límite es 1200 bytes. Offset 100 es válido: dirección física = 1000 + 100 = 1100.",
+      "seconds": 10,
+      "route": "/segmentacion",
+      "media": [
+        {
+          "file": "capturas/13-1.png",
+          "width": 953,
+          "height": 303.75,
+          "selector": "[data-segment-access]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "SEGMENTATION_FAULT: fuera del límite",
+      "caption": "El offset 1200 no cumple offset < límite. El acceso se rechaza, no existe dirección física y la ocupación de RAM se conserva.",
+      "seconds": 12,
+      "route": "/segmentacion",
+      "media": [
+        {
+          "file": "capturas/14-1.png",
+          "width": 953,
+          "height": 303.75,
+          "selector": "[data-segment-access]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Contigua frente a no contigua",
+      "caption": "Hay 9 KB libres, separados en huecos de 3 y 6 KB. Una solicitud de 7 KB falla en contigua; paginación y segmentación pueden distribuirla.",
+      "seconds": 12,
+      "route": "/comparacion",
+      "media": [
+        {
+          "file": "capturas/15-1.png",
+          "width": 306.984375,
+          "height": 500,
+          "selector": "[data-comparison-mode=contiguous]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/15-2.png",
+          "width": 312,
+          "height": 500,
+          "selector": "[data-comparison-mode=paging]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/15-3.png",
+          "width": 312,
+          "height": 500,
+          "selector": "[data-comparison-mode=segmentation]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Fragmentación interna y externa",
+      "caption": "7500 bytes requieren ocho páginas: reserva 8192 y deja 692 bytes internos sin usar. Los huecos separados explican la fragmentación externa.",
+      "seconds": 10,
+      "route": "/comparacion",
+      "media": [
+        {
+          "file": "capturas/16-1.png",
+          "width": 306.984375,
+          "height": 500,
+          "selector": "[data-comparison-mode=contiguous]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/16-2.png",
+          "width": 312,
+          "height": 500,
+          "selector": "[data-comparison-mode=paging]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/16-3.png",
+          "width": 312,
+          "height": 500,
+          "selector": "[data-comparison-mode=segmentation]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Terminal educativa",
+      "caption": "Los comandos consultan las mismas tablas y servicios. “request chrome 3” produce PAGE_HIT porque P3 ya fue cargada durante el recorrido.",
+      "seconds": 10,
+      "route": "/terminal",
+      "media": [
+        {
+          "file": "capturas/17-1.png",
+          "width": 581.984375,
+          "height": 470.875,
+          "selector": "[data-terminal-output]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Historial: evidencia de cada acceso",
+      "caption": "Cada solicitud, HIT y Page Fault conserva proceso, actor y fecha. Los filtros permiten seguir el comportamiento real del escenario.",
+      "seconds": 8,
+      "route": "/historial",
+      "media": [
+        {
+          "file": "capturas/18-1.png",
+          "width": 968,
+          "height": 500,
+          "selector": "[data-video-history]",
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Conclusión · Entender las estructuras",
+      "caption": "La tabla traduce páginas a marcos; base y límite protegen segmentos. La distribución aprovecha la RAM y el historial permite comprobar cada resultado.",
+      "seconds": 10,
+      "route": "/presentation",
+      "media": [
+        {
+          "file": "capturas/19-1.png",
+          "width": 714.25,
+          "height": 383.75,
+          "selector": "[data-paging-panel=pages]",
+          "offset": 0
+        },
+        {
+          "file": "capturas/19-2.png",
+          "width": 723,
+          "height": 351.671875,
+          "selector": "[data-paging-panel=ram]",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "duration": 180,
+  "width": 1280,
+  "height": 720,
+  "codec": "VP9",
+  "mime": "video/webm;codecs=vp9",
+  "bytes": 5804448,
+  "sha256": "df54389410846b2e0ae708567eaedb35cf16a54fbde1cb135d35060d71cd63ea",
+  "scenes": 19,
+  "captures": 33,
+  "checks": [
+    {
+      "second": 2,
+      "file": "qa-002.png"
+    },
+    {
+      "second": 46,
+      "file": "qa-046.png"
+    },
+    {
+      "second": 62,
+      "file": "qa-062.png"
+    },
+    {
+      "second": 93,
+      "file": "qa-093.png"
+    },
+    {
+      "second": 122,
+      "file": "qa-122.png"
+    },
+    {
+      "second": 145,
+      "file": "qa-145.png"
+    },
+    {
+      "second": 157,
+      "file": "qa-157.png"
+    },
+    {
+      "second": 168,
+      "file": "qa-168.png"
+    },
+    {
+      "second": 176,
+      "file": "qa-176.png"
+    }
+  ],
+  "playback_verified": true,
+  "temporary_data_cleaned": true
+}

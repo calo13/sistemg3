@@ -1,0 +1,49 @@
+{
+  "database": "memorylab",
+  "server_version": "8.0.44",
+  "users": 1,
+  "roles": 3,
+  "permissions": 13,
+  "tables": {
+    "scenarios": {
+      "exists": true,
+      "rows": 0
+    },
+    "memory_configurations": {
+      "exists": true,
+      "rows": 0
+    },
+    "processes": {
+      "exists": true,
+      "rows": 0
+    },
+    "memory_frames": {
+      "exists": true,
+      "rows": 0
+    },
+    "pages": {
+      "exists": true,
+      "rows": 0
+    },
+    "segments": {
+      "exists": true,
+      "rows": 0
+    },
+    "simulation_events": {
+      "exists": true,
+      "rows": 0
+    }
+  },
+  "engines": {
+    "memory_configurations": "InnoDB",
+    "memory_frames": "InnoDB",
+    "pages": "InnoDB",
+    "processes": "InnoDB",
+    "scenarios": "InnoDB",
+    "segments": "InnoDB",
+    "simulation_events": "InnoDB"
+  },
+  "foreign_keys": 12,
+  "enforced_checks": 6,
+  "unique_constraints": 7
+}

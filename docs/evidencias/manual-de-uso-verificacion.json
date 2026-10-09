@@ -1,0 +1,36 @@
+{
+  "pdf": "C:\\xampp\\htdocs\\sistemg3\\output\\pdf\\memorylab-manual-de-uso.pdf",
+  "editable_source": "C:\\xampp\\htdocs\\sistemg3\\docs\\manual-de-uso.md",
+  "page_count": 8,
+  "page_text_characters": [
+    1713,
+    2166,
+    1929,
+    1954,
+    2223,
+    2448,
+    2679,
+    2797
+  ],
+  "screenshots": [
+    "evidencias/fase-22-demostracion-escritorio.png",
+    "evidencias/fase-25-presentacion-escritorio.png",
+    "evidencias/fase-19-segmentation-fault-escritorio.png",
+    "evidencias/fase-24-terminal-escritorio.png"
+  ],
+  "sha256": "934ef193b405a2b71d379cff1614ab89f1b6d470ad16ea922cf76808ba3c5397",
+  "source_sha256": "836212c64efeea9e3823719d1121d27ef0a81eba319a236e6716e7affe23a8e8",
+  "visual_review": {
+    "status": "pass",
+    "reviewed_pages": [1, 2, 3, 4, 5, 6, 7, 8],
+    "renderer": "Poppler, PNG at 140 dpi",
+    "checks": [
+      "Eight pages rendered and inspected individually",
+      "No clipped text, table overflow or overlapping elements",
+      "Four distinct real application screenshots with readable crops",
+      "Final page 2 unit clarification and page 8 Spanish roles re-inspected",
+      "Inputs, sequencing and expected calculations verified against application sources"
+    ]
+  },
+  "application_or_database_operations": false
+}

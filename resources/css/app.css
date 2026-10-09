@@ -1,0 +1,83 @@
+[x-cloak] {
+    display: none !important;
+}
+
+.memorylab-guest .authentication-wrapper {
+    min-block-size: auto;
+}
+
+/* Brand dimensions adapted from Sneat's official demo.css. */
+.menu .app-brand.memorylab-brand {
+    height: 64px;
+    margin-top: 12px;
+}
+
+.memorylab-brand .app-brand-text {
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.memorylab-profile-name {
+    max-width: clamp(6rem, 20vw, 10rem);
+}
+
+.modal.memorylab-modal {
+    display: block;
+    z-index: 1100;
+}
+
+.memorylab-user-table {
+    min-width: 42rem;
+}
+
+.memorylab-process-table {
+    min-width: 42rem;
+}
+
+.memorylab-user-table .form-select {
+    min-width: 10rem;
+}
+
+.memorylab-skip-link {
+    z-index: 1200;
+}
+
+.memorylab-stat-label {
+    min-height: 2.5em;
+}
+
+.memorylab-memory-progress {
+    height: 0.5rem;
+}
+
+.memorylab-team {
+    scroll-margin-top: 2rem;
+}
+
+.memory-flow-active {
+    outline: 2px solid #696cff;
+    outline-offset: -2px;
+    transition: outline-color 180ms ease;
+}
+
+.memorylab-presentation .card-header,
+.memorylab-presentation .card-body { padding: 1rem; }
+.memorylab-presentation [data-memory-flow] { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.memorylab-presentation [data-memory-flow] .list-group-item { border-width: 1px; padding: .65rem; }
+.memorylab-presentation [data-memory-flow] .small.text-break { display: none; }
+.memorylab-presentation [data-memory-flow] [aria-current="step"] .small.text-break { display: block; }
+@media (max-width: 575px) {
+    .memorylab-presentation [data-memory-flow] { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .memory-flow-active { transition: none; }
+}
+
+.memorylab-team-table th[scope="row"],
+.memorylab-process-table th[scope="row"] {
+    white-space: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: inherit;
+}

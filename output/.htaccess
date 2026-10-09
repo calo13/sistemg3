@@ -1,0 +1,3 @@
+# Apache installations that expose the project folder must use Laravel's
+# authenticated delivery routes. PHP can still read these local files.
+Require all denied

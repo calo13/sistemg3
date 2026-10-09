@@ -1,0 +1,16 @@
+{
+  "pages": 9,
+  "text_chars_by_page": [
+    824,
+    1893,
+    2016,
+    1769,
+    2078,
+    2002,
+    2347,
+    2449,
+    2138
+  ],
+  "bytes": 466554,
+  "output": "C:\\xampp\\htdocs\\sistemg3\\output\\pdf\\memorylab-informe-tecnico.pdf"
+}
