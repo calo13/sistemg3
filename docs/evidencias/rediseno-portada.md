@@ -2,6 +2,8 @@
 
 Fecha: 2026-10-09.
 
+Esta evidencia conserva la primera versión del rediseño. La revisión posterior solicitada por el usuario reemplaza el ejemplo de RAM por el escudo de la UMG, ajusta la tipografía y añade animaciones e icono de pestaña. [Versión actual y capturas](ajuste-portada-umg.md).
+
 ## Solicitud
 
 El usuario pidió mejorar la página principal, incorporar el logo de la Universidad Mariano Gálvez y los cinco integrantes, explicar conceptos como segmentación y retirar el crédito visible «Diseño Sneat por ThemeSelection». Eligió expresamente la paleta **azul marino, rojo y blanco**.

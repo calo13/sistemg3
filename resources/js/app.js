@@ -7,6 +7,7 @@ import * as bootstrap from 'bootstrap';
 import { Livewire } from '../../vendor/livewire/livewire/dist/livewire.esm';
 import { initializeSneat } from './sneat';
 import './memory-flow';
+import './landing';
 
 window.bootstrap = bootstrap;
 

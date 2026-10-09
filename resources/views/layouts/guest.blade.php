@@ -7,6 +7,8 @@
 
         <title>@isset($title){{ $title }} · @endisset{{ config('app.name') }}</title>
 
+        <x-favicon />
+
         <!-- Scripts -->
         @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 
