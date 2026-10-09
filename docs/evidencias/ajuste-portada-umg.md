@@ -2,6 +2,8 @@
 
 Fecha: 2026-10-09.
 
+Esta evidencia conserva la primera adaptación con el escudo. La revisión posterior simplifica el diseño y las entradas, y añade color al panel: [refinamiento visual actual](refinamiento-visual.md).
+
 ## Solicitud
 
 Después de revisar la primera portada, el usuario pidió retirar el bloque «Un vistazo a la RAM», colocar el logo de la universidad en ese espacio, respetar la tipografía y el tema de Sneat, animar los elementos de la página principal y añadir un icono de pestaña.

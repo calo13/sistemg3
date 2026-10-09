@@ -1,100 +1,89 @@
 <x-guest-layout>
-    <x-slot name="title">Simulador de administración de memoria</x-slot>
+    <x-slot name="title">Administración de memoria</x-slot>
     @php($academic = config('memorylab.academic'))
 
     <div class="ml-home">
         <a class="ml-skip-link" href="#explora">Ir al contenido</a>
         <header class="ml-site-header">
             <div class="ml-container ml-header-inner">
-                <a class="ml-brand" href="{{ url('/') }}" aria-label="MemoryLab — Inicio" data-ml-reveal>
-                    <img src="{{ asset('images/umg-logo.png') }}" width="56" height="56" alt="Escudo de la Universidad Mariano Gálvez" fetchpriority="high">
-                    <span><strong>MemoryLab</strong><small>{{ $academic['degree'] }}</small></span>
+                <a class="ml-brand" href="{{ url('/') }}" aria-label="MemoryLab — Inicio">
+                    <img src="{{ asset('images/umg-logo.png') }}" width="44" height="44" alt="Escudo de la Universidad Mariano Gálvez" fetchpriority="high">
+                    <span><strong>MemoryLab</strong><small>{{ $academic['course'] }}</small></span>
                 </a>
                 <nav class="ml-site-nav" aria-label="Navegación de la portada">
-                    <a href="#conceptos" data-ml-reveal data-ml-delay="40">Conceptos</a>
-                    <a href="#como-funciona" data-ml-reveal data-ml-delay="80">Cómo empezar</a>
-                    <a href="#equipo" data-ml-reveal data-ml-delay="120">Integrantes</a>
+                    <a href="#conceptos">Conceptos</a>
+                    <a href="#como-funciona">Cómo empezar</a>
+                    <a href="#equipo">Integrantes</a>
                 </nav>
-                @auth
-                    <a class="ml-header-access" href="{{ route('dashboard') }}" data-ml-reveal data-ml-delay="160">Ir al panel <x-home-icon name="arrow" /></a>
-                @else
-                    <a class="ml-header-access" href="{{ route('login') }}" data-ml-reveal data-ml-delay="160">Iniciar sesión <x-home-icon name="arrow" /></a>
-                @endauth
+                <a class="btn btn-primary btn-sm ml-header-access" href="{{ auth()->check() ? route('dashboard') : route('login') }}">
+                    {{ auth()->check() ? 'Ir al panel' : 'Iniciar sesión' }} <x-home-icon name="arrow" />
+                </a>
             </div>
         </header>
 
-        <section id="explora" class="ml-hero" aria-labelledby="ml-hero-title">
-            <div class="ml-container ml-hero-grid">
-                <div class="ml-hero-copy">
-                    <p class="ml-eyebrow" data-ml-reveal><span></span>{{ $academic['course'] }} · {{ $academic['group'] }}</p>
-                    <h1 id="ml-hero-title" data-ml-reveal data-ml-delay="60">Simulador de<br>administración de memoria</h1>
-                    <p class="ml-hero-description" data-ml-reveal data-ml-delay="120">Proyecto académico para estudiar paginación, segmentación y traducción de direcciones. Usa el simulador para ver cómo se organiza la memoria de un proceso.</p>
+        <div class="ml-container ml-page-content">
+            <section id="explora" class="card ml-intro" aria-labelledby="ml-hero-title" data-ml-reveal>
+                <div class="ml-hero-copy bg-primary text-white">
+                    <div class="ml-intro-heading"><p class="ml-intro-label">Simulador interactivo</p><span class="badge bg-danger">{{ $academic['group'] }}</span></div>
+                    <h1 id="ml-hero-title">Administración<br>de memoria</h1>
+                    <p class="ml-hero-description">Estudia cómo un sistema operativo organiza la memoria de sus procesos. Practica paginación, segmentación y traducción de direcciones con escenarios que puedes consultar en el laboratorio.</p>
                     <div class="ml-hero-actions">
-                        <a class="btn btn-primary ml-button" href="{{ auth()->check() ? route('dashboard') : route('login') }}" data-ml-reveal data-ml-delay="180">Entrar al simulador <x-home-icon name="arrow" /></a>
-                        <a class="btn btn-outline-primary ml-button" href="#conceptos" data-ml-reveal data-ml-delay="220">Conocer el proyecto</a>
+                        <a class="btn btn-light ml-button" href="{{ auth()->check() ? route('dashboard') : route('login') }}">Entrar al simulador <x-home-icon name="arrow" /></a>
+                        <a class="btn btn-outline-light ml-button" href="#conceptos">Ver conceptos</a>
                     </div>
-                    <div class="ml-hero-caption" data-ml-reveal data-ml-delay="240"><x-home-icon name="book" />{{ $academic['university'] }}</div>
+                    <p class="ml-hero-note"><x-home-icon name="info" />Proyecto educativo · La memoria representada es simulada.</p>
                 </div>
-
-                <figure class="card ml-university" data-ml-reveal data-ml-delay="100">
-                    <div class="card-body">
-                        <img class="ml-university-logo" src="{{ asset('images/umg-logo.png') }}" width="256" height="257" alt="Escudo de la Universidad Mariano Gálvez de Guatemala" decoding="async" data-ml-reveal data-ml-delay="180">
-                        <h2 class="h5" data-ml-reveal data-ml-delay="220">{{ $academic['university'] }}</h2>
-                        <p class="mb-0" data-ml-reveal data-ml-delay="240">{{ $academic['degree'] }}</p>
-                    </div>
-                    <figcaption class="card-footer" data-ml-reveal>{{ $academic['course'] }} · {{ $academic['group'] }}</figcaption>
+                <figure class="ml-university">
+                    <img class="ml-university-logo" src="{{ asset('images/umg-logo.png') }}" width="184" height="185" alt="Escudo de la Universidad Mariano Gálvez de Guatemala" decoding="async">
+                    <figcaption><strong>{{ $academic['university'] }}</strong><span>{{ $academic['degree'] }}</span></figcaption>
                 </figure>
-            </div>
-        </section>
+            </section>
 
-        <section id="conceptos" class="ml-section ml-concepts" aria-labelledby="ml-concepts-title">
-            <div class="ml-container">
-                <div class="ml-section-heading"><div data-ml-reveal><p class="ml-eyebrow">Administración de memoria</p><h2 id="ml-concepts-title">Conceptos del simulador</h2></div><p data-ml-reveal data-ml-delay="80">Estos son los temas que puedes practicar<br class="ml-desktop-break"> en los módulos de MemoryLab.</p></div>
-                <div class="ml-concept-grid">
-                    <article class="card ml-concept-card" data-ml-reveal>
-                        <div class="ml-concept-icon"><span class="ml-concept-glyph"><i class="bx bx-grid-alt" aria-hidden="true"></i></span><span>01</span></div>
-                        <h3>Paginación</h3>
-                        <p>Divide un proceso en páginas del mismo tamaño. Cada página puede ocupar un marco de RAM; la tabla de páginas guarda esa ubicación.</p>
-                        <div class="ml-pages-diagram" aria-label="Páginas de igual tamaño"><span>P0</span><span>P1</span><span>P2</span><small>Partes del mismo tamaño</small></div>
+            <section id="conceptos" class="ml-section" aria-labelledby="ml-concepts-title">
+                <div class="ml-section-heading"><div><h2 id="ml-concepts-title">Conceptos del simulador</h2><p>Los temas que puedes practicar en los módulos.</p></div></div>
+                <div class="ml-concept-grid" data-ml-reveal>
+                    <article class="card ml-concept-card">
+                        <div class="ml-concept-title"><span class="ml-concept-glyph"><i class="bx bx-grid-alt" aria-hidden="true"></i></span><h3>Paginación</h3></div>
+                        <p>Divide un proceso en páginas de igual tamaño. La tabla de páginas indica en qué marco de RAM se encuentra cada página presente.</p>
+                        <div class="ml-concept-tags"><span class="badge bg-label-primary">Páginas y marcos</span><span class="badge bg-label-secondary">FIFO</span></div>
                     </article>
-                    <article class="card ml-concept-card" data-ml-reveal data-ml-delay="80">
-                        <div class="ml-concept-icon ml-concept-icon-red"><span class="ml-concept-glyph"><x-home-icon name="layers" /></span><span>02</span></div>
-                        <h3>Segmentación</h3>
-                        <p>Organiza un proceso en partes de distinto tamaño: código, datos o pila. Cada segmento tiene una base donde empieza y un límite de acceso.</p>
-                        <div class="ml-segments-diagram" aria-label="Segmentos de distintos tamaños"><span>Código</span><span>Datos</span><span>Pila</span><small>Partes con una función</small></div>
+                    <article class="card ml-concept-card">
+                        <div class="ml-concept-title"><span class="ml-concept-glyph ml-concept-glyph-red"><x-home-icon name="layers" /></span><h3>Segmentación</h3></div>
+                        <p>Organiza un proceso en partes, como código, datos y pila. Cada segmento tiene una dirección base y un límite para validar los accesos.</p>
+                        <div class="ml-concept-tags"><span class="badge bg-label-primary">Base</span><span class="badge bg-label-secondary">Límite</span></div>
                     </article>
-                    <article class="card ml-concept-card" data-ml-reveal data-ml-delay="160">
-                        <div class="ml-concept-icon"><span class="ml-concept-glyph"><x-home-icon name="map" /></span><span>03</span></div>
-                        <h3>Traducción de direcciones</h3>
-                        <p>Relaciona la dirección que utiliza un proceso con su ubicación en la RAM. Observa cómo la tabla permite encontrar el dato solicitado.</p>
-                        <div class="ml-address-diagram" aria-label="De la dirección lógica a la dirección física"><span>Lógica</span><x-home-icon name="arrow" /><span>Física</span><small>Del proceso a la RAM</small></div>
+                    <article class="card ml-concept-card">
+                        <div class="ml-concept-title"><span class="ml-concept-glyph"><x-home-icon name="map" /></span><h3>Traducción de direcciones</h3></div>
+                        <p>Calcula dónde está un dato en la RAM a partir de la dirección que utiliza el proceso y de la información de su tabla.</p>
+                        <div class="ml-concept-tags"><span class="badge bg-label-primary">Dirección lógica</span><span class="badge bg-label-secondary">Dirección física</span></div>
                     </article>
                 </div>
-                <p class="ml-educational-note" data-ml-reveal><x-home-icon name="info" />La memoria del simulador es educativa; no modifica la RAM de tu equipo.</p>
-            </div>
-        </section>
+            </section>
 
-        <section id="como-funciona" class="ml-how-section" aria-labelledby="ml-how-title">
-            <div class="ml-container ml-how-grid">
-                <div><p class="ml-eyebrow" data-ml-reveal>Guía de inicio</p><h2 id="ml-how-title" data-ml-reveal data-ml-delay="60">Cómo usar MemoryLab</h2><p data-ml-reveal data-ml-delay="120">Sigue esta secuencia para entrar y consultar los módulos. El panel muestra las opciones disponibles según tu rol.</p></div>
-                <ol class="ml-steps">
-                    <li data-ml-reveal><span>01</span><div><h3>Inicia sesión</h3><p>Accede al panel con tu cuenta para consultar los módulos de memoria.</p></div></li>
-                    <li data-ml-reveal data-ml-delay="80"><span>02</span><div><h3>Selecciona un módulo</h3><p>Abre paginación, segmentación o traducción de direcciones desde el menú.</p></div></li>
-                    <li data-ml-reveal data-ml-delay="160"><span>03</span><div><h3>Revisa la simulación</h3><p>Consulta la tabla, el mapa de RAM y el resultado de los accesos del escenario.</p></div></li>
+            <section id="como-funciona" class="ml-section" aria-labelledby="ml-how-title">
+                <div class="ml-section-heading"><div><h2 id="ml-how-title">Cómo empezar</h2><p>Consulta las opciones disponibles según el rol de tu cuenta.</p></div></div>
+                <ol class="card ml-steps" data-ml-reveal>
+                    <li><span class="ml-step-number">1</span><div><h3>Inicia sesión</h3><p>Accede con tu cuenta para abrir el panel del proyecto.</p></div></li>
+                    <li><span class="ml-step-number">2</span><div><h3>Selecciona un módulo</h3><p>Elige paginación, segmentación o traducción desde el menú.</p></div></li>
+                    <li><span class="ml-step-number">3</span><div><h3>Revisa el escenario</h3><p>Relaciona la tabla y el mapa de RAM con el resultado de cada acceso.</p></div></li>
                 </ol>
-            </div>
-        </section>
+            </section>
 
-        <section id="equipo" class="ml-section ml-team-section" aria-labelledby="ml-team-title">
-            <div class="ml-container">
-                <div class="ml-section-heading"><div data-ml-reveal><p class="ml-eyebrow">{{ $academic['degree'] }} · {{ $academic['group'] }}</p><h2 id="ml-team-title">Integrantes del proyecto</h2></div><p data-ml-reveal data-ml-delay="80">{{ $academic['university'] }}<br>{{ $academic['course'] }}</p></div>
-                <div class="ml-team-grid">
-                    @foreach ($academic['members'] as $member)
-                        <article class="ml-team-member" data-ml-reveal data-ml-delay="{{ ($loop->index % 3) * 60 }}"><span class="ml-member-number" aria-hidden="true">{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</span><div><h3>{{ $member['name'] }}</h3><p>Carné <span>{{ $member['carnet'] }}</span></p></div></article>
-                    @endforeach
+            <section id="equipo" class="ml-section" aria-labelledby="ml-team-title">
+                <div class="ml-section-heading"><div><h2 id="ml-team-title">Integrantes del proyecto</h2><p>{{ $academic['degree'] }} · {{ $academic['course'] }} · {{ $academic['group'] }}</p></div></div>
+                <div class="card ml-team-card" data-ml-reveal>
+                    <table class="table ml-team-table mb-0">
+                        <caption class="visually-hidden">Integrantes de {{ $academic['group'] }} y sus carnés universitarios.</caption>
+                        <thead><tr><th scope="col">Nombres y apellidos</th><th scope="col">Carné</th></tr></thead>
+                        <tbody>
+                            @foreach ($academic['members'] as $member)
+                                <tr class="ml-team-member"><th scope="row">{{ $member['name'] }}</th><td>{{ $member['carnet'] }}</td></tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
-                <div class="card ml-closing" data-ml-reveal>
-                    <div><h2>Accede al simulador</h2><p>Inicia sesión para consultar los escenarios y módulos del proyecto.</p></div>
+                <div class="ml-closing" data-ml-reveal>
+                    <div><h2>Continuar al simulador</h2><p>Accede a los escenarios disponibles desde el panel.</p></div>
                     <div class="ml-closing-actions">
                         <a class="btn btn-primary ml-button" href="{{ auth()->check() ? route('dashboard') : route('login') }}">Abrir MemoryLab <x-home-icon name="arrow" /></a>
                         @guest
@@ -102,7 +91,7 @@
                         @endguest
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
 </x-guest-layout>

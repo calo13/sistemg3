@@ -6,18 +6,21 @@
     </x-slot>
 
     {{-- Academic adaptation of Sneat's dashboards-analytics welcome card. --}}
-    <section class="card mb-4" aria-labelledby="academic-title">
-        <div class="card-body d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-4">
-            <div>
-                <p class="text-primary fw-medium mb-1">{{ $academic['university'] }}</p>
-                <p class="text-body-secondary mb-3">{{ $academic['degree'] }}</p>
-                <h2 id="academic-title" class="h4 mb-2">{{ config('app.name') }}</h2>
-                <p class="mb-0">Simulador interactivo de administración de memoria.</p>
+    <section class="card mb-4 memorylab-dashboard-welcome" aria-labelledby="academic-title">
+        <div class="card-body d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-4">
+            <div class="d-flex align-items-start align-items-sm-center gap-3 gap-sm-4">
+                <img class="memorylab-dashboard-crest flex-shrink-0" src="{{ asset('images/umg-logo.png') }}" width="88" height="88" alt="Escudo de la Universidad Mariano Gálvez">
+                <div>
+                    <p class="memorylab-dashboard-university fw-medium mb-1">{{ $academic['university'] }}</p>
+                    <p class="memorylab-dashboard-muted mb-3">{{ $academic['degree'] }}</p>
+                    <h2 id="academic-title" class="h4 mb-2">{{ config('app.name') }}</h2>
+                    <p class="memorylab-dashboard-muted mb-0">Simulador interactivo de administración de memoria.</p>
+                </div>
             </div>
-            <div class="d-flex flex-wrap flex-md-column align-items-start align-items-md-end gap-2 flex-shrink-0">
-                <span class="badge bg-label-primary">{{ $academic['course'] }}</span>
-                <span class="badge bg-label-secondary">{{ $academic['group'] }}</span>
-                <a class="btn btn-sm btn-outline-primary" href="#equipo">Ver integrantes</a>
+            <div class="d-flex flex-wrap flex-lg-column align-items-start align-items-lg-end gap-2 flex-shrink-0">
+                <span class="badge memorylab-dashboard-course">{{ $academic['course'] }}</span>
+                <span class="badge memorylab-dashboard-group">{{ $academic['group'] }}</span>
+                <a class="btn btn-sm btn-outline-light memorylab-dashboard-team-link" href="#equipo">Ver integrantes</a>
             </div>
         </div>
     </section>
@@ -33,7 +36,7 @@
                         <p class="mb-0 small text-body-secondary">{{ $academic['degree'] }} · {{ $academic['group'] }}</p>
                     </div>
                     <span class="avatar avatar-sm flex-shrink-0" aria-hidden="true">
-                        <span class="avatar-initial rounded bg-label-primary"><i class="icon-base bx bx-group"></i></span>
+                        <span class="avatar-initial rounded memorylab-dashboard-icon memorylab-dashboard-icon-primary"><i class="icon-base bx bx-group"></i></span>
                     </span>
                 </div>
                 <div class="table-responsive">
@@ -53,14 +56,14 @@
             </section>
         </div>
         <div class="col-lg-5">
-            <section class="card h-100" aria-labelledby="learning-title">
+            <section class="card h-100 memorylab-dashboard-learning" aria-labelledby="learning-title">
                 <div class="card-header d-flex flex-wrap align-items-center justify-content-between gap-2">
                     <h2 id="learning-title" class="h5 mb-0">Contenido académico</h2>
-                    <span class="badge bg-label-secondary">Módulos</span>
+                    <span class="badge bg-label-primary">Módulos</span>
                 </div>
                 <div class="card-body">
                     <div class="d-flex align-items-start gap-3 mb-4">
-                        <span class="avatar avatar-sm flex-shrink-0" aria-hidden="true"><span class="avatar-initial rounded bg-label-primary"><i class="icon-base bx bx-grid-alt"></i></span></span>
+                        <span class="avatar avatar-sm flex-shrink-0" aria-hidden="true"><span class="avatar-initial rounded memorylab-dashboard-icon memorylab-dashboard-icon-primary"><i class="icon-base bx bx-grid-alt"></i></span></span>
                         <div>
                             <h3 class="h6 mb-1">Paginación</h3><p class="small mb-0">Tablas de páginas, marcos y fallos de página.</p>
                             @can('memory.view')
@@ -73,7 +76,7 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-start gap-3 mb-4">
-                        <span class="avatar avatar-sm flex-shrink-0" aria-hidden="true"><span class="avatar-initial rounded bg-label-info"><i class="icon-base bx bx-data"></i></span></span>
+                        <span class="avatar avatar-sm flex-shrink-0" aria-hidden="true"><span class="avatar-initial rounded memorylab-dashboard-icon memorylab-dashboard-icon-danger"><i class="icon-base bx bx-data"></i></span></span>
                         <div>
                             <h3 class="h6 mb-1">Segmentación</h3>
                             <p class="small mb-0">Tablas de segmentos, base y límite de cada segmento.</p>
@@ -87,7 +90,7 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-start gap-3">
-                        <span class="avatar avatar-sm flex-shrink-0" aria-hidden="true"><span class="avatar-initial rounded bg-label-success"><i class="icon-base bx bx-transfer-alt"></i></span></span>
+                        <span class="avatar avatar-sm flex-shrink-0" aria-hidden="true"><span class="avatar-initial rounded memorylab-dashboard-icon memorylab-dashboard-icon-info"><i class="icon-base bx bx-transfer-alt"></i></span></span>
                         <div>
                             <h3 class="h6 mb-1">Comparación de asignación</h3><p class="small mb-0">Asignación contigua y no contigua, fragmentación y conclusiones técnicas.</p>
                             @can('memory.view')

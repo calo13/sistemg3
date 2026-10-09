@@ -9,57 +9,46 @@ function initializeLandingMotion() {
     mountedHome = home;
     if (!home) return;
 
+    const targets = [...home.querySelectorAll('[data-ml-reveal]')].filter(element => {
+        if (element.closest('.ml-site-header')) return false;
+
+        const ancestor = element.parentElement?.closest('[data-ml-reveal]');
+        return !ancestor || !home.contains(ancestor);
+    });
     const preference = matchMedia('(prefers-reduced-motion: reduce)');
-    if (preference.matches || typeof IntersectionObserver !== 'function') return;
+    let observer = null;
 
-    const targets = [...home.querySelectorAll('[data-ml-reveal]')];
-    const footer = document.querySelector('.memorylab-guest > .content-footer');
-    if (footer) targets.push(footer);
-
-    const reveal = element => {
-        element.classList.remove('ml-reveal-pending');
-        element.classList.add('ml-revealed');
-    };
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            reveal(entry.target);
-            observer.unobserve(entry.target);
-        });
-    }, { threshold: 0.08, rootMargin: '0px 0px 32px 0px' });
-
-    const showAll = () => {
-        observer.disconnect();
-        targets.forEach(element => element.classList.remove('ml-reveal-pending', 'ml-revealed'));
+    const stopMotion = () => {
+        observer?.disconnect();
+        observer = null;
+        targets.forEach(element => element.classList.remove('ml-revealed'));
     };
     const handlePreference = event => {
-        if (event.matches) showAll();
+        if (event.matches) stopMotion();
     };
-    const handleFocus = event => {
-        const target = event.target.closest('.ml-reveal-pending');
-        if (!target) return;
-        reveal(target);
-        observer.unobserve(target);
-    };
-
-    // Hiding is enabled only after an observer is ready; without JS the page stays visible.
-    targets.forEach(element => {
-        const delay = Number(element.dataset.mlDelay) || 0;
-        element.style.setProperty('--ml-delay', `${Math.min(240, Math.max(0, delay))}ms`);
-        element.classList.add('ml-reveal-pending');
-        observer.observe(element);
-    });
-    preference.addEventListener('change', handlePreference);
-    document.addEventListener('focusin', handleFocus);
 
     disposeMotion = () => {
-        showAll();
-        targets.forEach(element => element.style.removeProperty('--ml-delay'));
+        stopMotion();
         preference.removeEventListener('change', handlePreference);
-        document.removeEventListener('focusin', handleFocus);
         mountedHome = null;
         disposeMotion = () => {};
     };
+
+    if (preference.matches || typeof IntersectionObserver !== 'function') return;
+
+    // Content is already visible; the class only adds a short entrance accent.
+    observer = new IntersectionObserver(entries => {
+        if (!observer || preference.matches || !home.isConnected) return;
+
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('ml-revealed');
+            observer?.unobserve(entry.target);
+        });
+    }, { threshold: 0.08 });
+
+    targets.forEach(element => observer.observe(element));
+    preference.addEventListener('change', handlePreference);
 }
 
 if (document.readyState === 'loading') {

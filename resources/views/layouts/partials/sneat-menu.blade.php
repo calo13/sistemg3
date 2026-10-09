@@ -2,6 +2,7 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" aria-label="Menú principal">
     <div class="app-brand memorylab-brand">
         <a href="{{ route('dashboard') }}" class="app-brand-link">
+            <img class="memorylab-menu-crest" src="{{ asset('images/umg-logo.png') }}" width="36" height="36" alt="" aria-hidden="true">
             <span class="d-flex flex-column">
                 <span class="app-brand-text menu-text fw-bold">{{ config('app.name') }}</span>
                 <span class="small text-body-secondary">UMG · {{ $academic['group'] }}</span>

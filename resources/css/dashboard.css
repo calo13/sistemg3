@@ -1,0 +1,162 @@
+/* Color accents for the authenticated Sneat layout; public pages keep their own styles. */
+.layout-wrapper .memorylab-dashboard-welcome {
+    position: relative;
+    overflow: hidden;
+    background: #16324f;
+    border: 0;
+    color: #fff;
+}
+
+.layout-wrapper .memorylab-dashboard-welcome::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: 5px;
+    background: #c63d44;
+}
+
+.layout-wrapper .memorylab-dashboard-welcome .card-body {
+    padding: 1.75rem;
+}
+
+.layout-wrapper .memorylab-dashboard-welcome h2,
+.layout-wrapper .memorylab-dashboard-university {
+    color: #fff;
+}
+
+.layout-wrapper .memorylab-dashboard-muted {
+    color: #dce5ef;
+}
+
+.layout-wrapper .memorylab-dashboard-crest {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    padding: 7px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.layout-wrapper .memorylab-dashboard-course {
+    color: #fff;
+    background: #c63d44;
+    font-weight: 500;
+}
+
+.layout-wrapper .memorylab-dashboard-group {
+    color: #fff;
+    background: #294865;
+    font-weight: 500;
+}
+
+.layout-wrapper .memorylab-dashboard-team-link {
+    color: #fff;
+    border-color: #a8b9cb;
+    margin-block-start: .25rem;
+}
+
+.layout-wrapper .memorylab-dashboard-team-link:hover,
+.layout-wrapper .memorylab-dashboard-team-link:focus-visible {
+    color: #16324f;
+    background: #fff;
+    border-color: #fff;
+}
+
+.layout-wrapper .memorylab-dashboard-welcome a:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+.layout-wrapper .memorylab-stat {
+    --memorylab-stat-accent: #16324f;
+    border-block-start: 3px solid var(--memorylab-stat-accent);
+}
+
+.layout-wrapper .memorylab-stat-info { --memorylab-stat-accent: #1f6d78; }
+.layout-wrapper .memorylab-stat-success { --memorylab-stat-accent: #25724d; }
+.layout-wrapper .memorylab-stat-danger { --memorylab-stat-accent: #c63d44; }
+
+.layout-wrapper .memorylab-stat-value {
+    color: #16324f;
+    font-variant-numeric: tabular-nums;
+}
+
+.layout-wrapper .avatar .avatar-initial.memorylab-dashboard-icon {
+    --memorylab-dashboard-icon-bg: #16324f;
+    --bs-avatar-initial-bg: var(--memorylab-dashboard-icon-bg);
+    color: #fff !important;
+    background-color: var(--memorylab-dashboard-icon-bg) !important;
+}
+
+.layout-wrapper .avatar .avatar-initial.memorylab-dashboard-icon-primary { --memorylab-dashboard-icon-bg: #16324f; }
+.layout-wrapper .avatar .avatar-initial.memorylab-dashboard-icon-info { --memorylab-dashboard-icon-bg: #1f6d78; }
+.layout-wrapper .avatar .avatar-initial.memorylab-dashboard-icon-success { --memorylab-dashboard-icon-bg: #25724d; }
+.layout-wrapper .avatar .avatar-initial.memorylab-dashboard-icon-danger { --memorylab-dashboard-icon-bg: #c63d44; }
+
+.layout-wrapper .memorylab-dashboard-utilization .progress {
+    height: .625rem;
+    background: #e4ebf3;
+}
+
+.layout-wrapper .memorylab-dashboard-utilization .progress-bar {
+    background: #16324f;
+}
+
+.layout-wrapper .memorylab-team > .card-header,
+.layout-wrapper .memorylab-dashboard-learning > .card-header {
+    border-block-end: 1px solid #e2e8ef;
+}
+
+.layout-wrapper .memorylab-team-table thead {
+    background: #f2f5f9;
+}
+
+.layout-wrapper .memorylab-menu-crest {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    margin-inline-end: .625rem;
+}
+
+.layout-wrapper .layout-menu .app-brand-link {
+    min-width: 0;
+}
+
+.layout-wrapper .layout-menu .menu-inner > .menu-item.active > .menu-link,
+.layout-wrapper .layout-menu .menu-inner > .menu-item.active > .menu-link:hover,
+.layout-wrapper .layout-menu .menu-inner > .menu-item.active > .menu-link:focus {
+    background: #16324f !important;
+    color: #fff !important;
+}
+
+.layout-wrapper .layout-menu .menu-inner > .menu-item.active > .menu-link .menu-icon,
+.layout-wrapper .layout-menu .menu-inner > .menu-item.active > .menu-link > div {
+    color: #fff;
+}
+
+.layout-wrapper .layout-menu .menu-inner > .menu-item.active::before {
+    background: #c63d44 !important;
+}
+
+.layout-wrapper .layout-menu .menu-inner > .menu-item:not(.active) > .menu-link:hover {
+    color: #16324f;
+    background: #edf2f8;
+}
+
+.layout-wrapper .layout-menu .menu-link:focus-visible {
+    outline: 2px solid #c63d44;
+    outline-offset: 2px;
+}
+
+@media (max-width: 575px) {
+    .layout-wrapper .memorylab-dashboard-welcome .card-body { padding: 1.25rem; }
+    .layout-wrapper .memorylab-dashboard-crest { width: 64px; height: 64px; padding: 5px; }
+    .layout-wrapper .memorylab-dashboard-welcome .h4 { font-size: 1.25rem; }
+    .layout-wrapper .memorylab-dashboard-welcome p { overflow-wrap: anywhere; }
+    .layout-wrapper .memorylab-dashboard-stats .memorylab-stat .card-body { padding: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .layout-wrapper .memorylab-dashboard-welcome .btn { transition: none; }
+}
