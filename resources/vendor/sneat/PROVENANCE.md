@@ -19,6 +19,6 @@ Desde la Fase 5, `resources/views/components/authentication-card.blade.php` y la
 
 Desde la Fase 7, `resources/views/dashboard.blade.php` y `resources/views/livewire/dashboard-stats.blade.php` adaptan las tarjetas de bienvenida e indicadores de `content/dashboard/dashboards-analytics.blade.php`. La adaptación usa la información académica de MemoryLab, una tabla de integrantes y el estado sin escenario; conserva el grid, las cards, avatars, badges, tabla y progress de Sneat/Bootstrap. No incorpora métricas comerciales, gráficos ni cifras de demostración de la plantilla.
 
-Licencias conservadas: `LICENSE` (Sneat, MIT), `icons/LICENSE-boxicons` (Boxicons, MIT), `LICENSE-perfect-scrollbar` (Perfect Scrollbar, MIT) y `LICENSE-public-sans` (Public Sans, SIL Open Font License). El footer acredita y enlaza a ThemeSelection.
+Licencias conservadas: `LICENSE` (Sneat, MIT), `icons/LICENSE-boxicons` (Boxicons, MIT), `LICENSE-perfect-scrollbar` (Perfect Scrollbar, MIT) y `LICENSE-public-sans` (Public Sans, SIL Open Font License). Los avisos de autoría y permiso de ThemeSelection permanecen en `LICENSE` y la procedencia se documenta aquí. La licencia MIT no exige un crédito visible en la interfaz; los pies de página muestran la identidad académica de MemoryLab, la universidad, la carrera y el grupo.
 
 No se copiaron `.env`, configuración de Laravel, migraciones, controladores ni dependencias de demostración del repositorio.

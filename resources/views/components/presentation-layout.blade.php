@@ -19,7 +19,10 @@
                 </div>
             </header>
             {{ $slot }}
-            <footer class="small text-body-secondary d-flex flex-wrap justify-content-between gap-2 mt-3"><span>{{ config('memorylab.academic.course') }} · 1 KB = 1024 bytes</span><span>Diseño Sneat por <a href="https://themeselection.com" target="_blank" rel="noopener">ThemeSelection</a></span></footer>
+            <footer class="small text-body-secondary d-flex flex-wrap justify-content-between gap-2 mt-3">
+                <span>{{ config('app.name') }} · {{ config('memorylab.academic.group') }}</span>
+                <span>{{ config('memorylab.academic.university') }} · {{ config('memorylab.academic.degree') }}</span>
+            </footer>
         </main>
         <x-livewire-config />
     </body>

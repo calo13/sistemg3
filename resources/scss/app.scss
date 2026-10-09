@@ -1,5 +1,37 @@
 // Sneat Free by ThemeSelection. See resources/vendor/sneat/LICENSE.
+// Set the application palette before Sneat's !default variables and color maps.
+$primary: #16324f;
+$danger: #c63d44;
+$success: #25724d;
+$info: #1f6d78;
+$warning: #805613;
+$secondary: #5d6b7b;
+$light: #e8edf3;
+$dark: #20334b;
+
+// Keep the underlying Bootstrap color aliases aligned with the same palette.
+$blue: $primary;
+$indigo: $primary;
+$purple: $primary;
+$pink: $danger;
+$red: $danger;
+$green: $success;
+$teal: $info;
+$cyan: $info;
+$orange: $warning;
+$yellow: $warning;
+
+$black: #20334b;
+$body-color: $black;
+$headings-color: $black;
+$body-secondary-color: $secondary;
+$body-bg: #f4f6f9;
+$paper-bg: #fff;
+$min-contrast-ratio: 4.5;
+$focus-ring-color: rgba($primary, .28);
+
 @import '../vendor/sneat/scss/core';
 @import '../vendor/sneat/scss/pages/page-auth';
 @import '../vendor/sneat/icons/boxicons.css';
 @import '../css/app.css';
+@import '../css/landing.css';

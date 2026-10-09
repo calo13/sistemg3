@@ -2,6 +2,8 @@
 
 Fecha de registro: **8 de octubre de 2026**.
 
+Última actualización: **9 de octubre de 2026**.
+
 Este documento reúne instrucciones reales, decisiones y correcciones conservadas durante el desarrollo asistido por IA. Los extractos literales se identifican como citas; los resúmenes se indican como tales. La solicitud extensa permanece en [solicitud-inicial.md](evidencias/solicitud-inicial.md), y cada fase conserva implementación, comprobaciones y capturas. No se reconstruye una conversación que no esté disponible ni se añaden prompts ficticios.
 
 ## Instrucciones y prompts conservados
@@ -70,6 +72,7 @@ Esta instrucción sustituyó la pausa de aprobación entre fases y mantuvo su de
 5. **Demo liberada presentada como activa.** Liberar un escenario del par limpia su referencia local; el montaje valida procesos activos para no mantener instrucciones de una demo finalizada. La historia permanece. [Fase 22](evidencias/fase-22.md).
 6. **Textos residuales de autenticación en inglés.** Se revisaron las funciones activas y se completó la traducción del correo de recuperación, errores de contraseña, sesión vencida y exceso de solicitudes. El correo se renderizó con datos sintéticos sin enviarlo; 23 pruebas de autenticación aprobaron. El envío real de correos sigue dependiendo de configurar el servicio de correo de cada instalación.
 7. **MariaDB del hosting rechazada por la migración.** El usuario informó el fallo y confirmó `10.6.28-MariaDB`. Se sustituyó el rechazo general por mínimos compatibles, sin omitir restricciones; la instalación interrumpida se reprodujo en una base temporal y pudo continuar. Se verificaron versiones, integridad y ambos conectores, y se añadió MariaDB a la matriz de GitHub. [Compatibilidad y pruebas](evidencias/compatibilidad-mariadb.md).
+8. **Portada sencilla y paleta morada.** El usuario pidió el logo de la UMG, los integrantes y explicaciones breves, y eligió azul marino, rojo y blanco. Se rediseñó la portada y se aplicó la paleta al resto de la interfaz. El crédito visual se sustituyó por la identidad académica, conservando los avisos y la licencia MIT. La compilación, 89 pruebas y la revisión real en escritorio/móvil aprobaron. [Resultado, capturas y actualización del hosting](evidencias/rediseno-portada.md).
 
 Estas correcciones muestran la necesidad de revisar resultados, permisos y pantallas reales: una respuesta HTTP correcta o una propuesta de IA no acredita por sí sola el comportamiento visual y persistente.
 
@@ -83,6 +86,6 @@ Las pruebas utilizan memorylab_testing. La auditoría principal conserva dos cue
 
 El usuario proporcionó objetivos, stack, integrantes, correcciones y autorización. La IA asistió en análisis, implementación, revisión, pruebas y documentación; sus propuestas se contrastaron con código instalado, documentación oficial, pruebas automatizadas y navegador. Las decisiones concretas y límites quedan visibles en los archivos citados.
 
-MemoryLab simula memoria con modelos y eventos; no administra la RAM física del equipo. La comparación educativa cita OSTEP en [el modelo](modelo-memoria.md). Sneat conserva procedencia y créditos de ThemeSelection. La guía Linux está preparada y el Apache local comprobado; no se afirma un despliegue en una VM o servidor externo. [Fase 28](evidencias/fase-28.md).
+MemoryLab simula memoria con modelos y eventos; no administra la RAM física del equipo. La comparación educativa cita OSTEP en [el modelo](modelo-memoria.md). Sneat conserva la procedencia y los avisos de autoría/licencia de ThemeSelection en sus archivos. La guía Linux está preparada y el Apache local comprobado; no se afirma un despliegue en una VM o servidor externo. [Fase 28](evidencias/fase-28.md).
 
 Las Fases 29–31 cuentan con un informe de nueve páginas, una presentación editable de doce diapositivas y un video de 180 segundos con subtítulos. Sus resultados y verificaciones se conservan en sus propias evidencias. El usuario solicitó después un manual de uso para seguir la secuencia y explicar qué demuestra cada actividad académica; se registra como entrega adicional.

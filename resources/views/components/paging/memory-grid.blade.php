@@ -20,4 +20,4 @@
     @endforeach
 </div>
 @if ($frames->hasPages())<div class="mt-3">{{ $frames->links() }}</div>@endif
-<p class="small text-body-secondary mt-3 mb-0">Los bloques representan marcos del escenario completo. El borde morado identifica páginas del proceso seleccionado.</p>
+<p class="small text-body-secondary mt-3 mb-0">Los bloques representan marcos del escenario completo. El borde azul marino identifica páginas del proceso seleccionado.</p>
