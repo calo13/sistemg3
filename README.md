@@ -131,7 +131,15 @@ php artisan migrate --seed --force
 
 Conserva `.env`, `APP_KEY` y los datos existentes. No uses `migrate:fresh` ni rollback para resolver ese rechazo. `--force` permite ejecutar las migraciones en producción; `--seed` invoca `DatabaseSeeder`, que prepara únicamente roles y permisos, sin crear cuentas ni demostraciones. La comprobación `php artisan memorylab:database` acepta ambos motores compatibles y valida sus mínimos. Los pasos completos del servidor están en [docs/despliegue.md](docs/despliegue.md).
 
-Puedes crear tu cuenta en `http://localhost/sistemg3/public/register` e iniciar sesión en `http://localhost/sistemg3/public/login`. No se generaron cuentas ni contraseñas predeterminadas.
+Puedes crear tu cuenta en `http://localhost/sistemg3/public/register` e iniciar sesión en `http://localhost/sistemg3/public/login`. El seeder general no genera cuentas ni contraseñas predeterminadas.
+
+**Administrador para práctica:** el seeder independiente `AdminUserSeeder` crea `admin@admin.com` con contraseña inicial `123` y rol Administrador. Ejecutarlo de forma explícita:
+
+```sh
+php artisan db:seed --class=AdminUserSeeder
+```
+
+En producción, añadir `--force`. Prepara los roles/permisos y esta cuenta, sin crear escenarios, procesos ni demostraciones. Repetirlo no duplica la cuenta; si el correo ya existe, conserva su nombre y contraseña y le asigna Administrador. `DatabaseSeeder` no ejecuta este seeder automáticamente.
 
 Los registros nuevos reciben Observador en la misma transacción que crea la cuenta. El seeder crea los roles y permisos con el guard `web`, conserva los roles ya asignados y agrega Observador a las cuentas sin rol. Puede repetirse sin crear cuentas ni duplicar el catálogo.
 

@@ -101,6 +101,14 @@ php artisan memorylab:user-role "tu-correo@ejemplo.com" administrador
 
 El correo es un marcador que debe sustituirse por la cuenta ya registrada. El comando no crea usuarios ni cambia contraseñas. Preparar las demás cuentas mediante registro y administración de roles, según necesidad; los integrantes académicos del dashboard no son cuentas. Si se deshabilita el registro después, actualizar la caché de configuración. Esta guía no publica ni establece credenciales de acceso.
 
+Para la cuenta de práctica solicitada por el usuario existe un seeder independiente, con las credenciales iniciales y el comportamiento descritos en [README](../README.md). Ejecutarlo opcionalmente después de las migraciones:
+
+```sh
+php artisan db:seed --class=AdminUserSeeder --force
+```
+
+No añade simulaciones ni modifica la contraseña de una cuenta existente. `DatabaseSeeder` no lo ejecuta automáticamente. [Verificación](evidencias/seeder-administrador.md).
+
 ## Servidor web y PHP
 
 La raíz del sitio debe ser /var/www/memorylab/public. Esta separación impide servir .env, vendor/, fuentes y documentación como archivos públicos. Mantener index.php en public/ y dar escritura al proceso PHP únicamente donde el proyecto la necesita: storage/ y bootstrap/cache/. Es el esquema indicado por [Laravel para el servidor y sus directorios](https://laravel.com/docs/12.x/deployment#server-configuration).
