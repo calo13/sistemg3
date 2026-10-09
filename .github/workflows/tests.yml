@@ -19,8 +19,13 @@ jobs:
       fail-fast: true
       matrix:
         php: [8.2, 8.3, 8.4]
+        image: ['mysql:8.0']
+        include:
+          - php: 8.2
+            image: mariadb:10.6
+            healthcheck: healthcheck.sh --connect --innodb_initialized
 
-    name: PHP ${{ matrix.php }}
+    name: ${{ matrix.image }} / PHP ${{ matrix.php }}
 
     # Disposable CI database; these credentials are unrelated to any installation.
     env:
@@ -32,8 +37,9 @@ jobs:
       DB_PASSWORD: memorylab_ci
 
     services:
-      mysql:
-        image: mysql:8.0
+      database:
+        image: ${{ matrix.image }}
+        # Both official images accept these MYSQL_* initialization variables.
         env:
           MYSQL_ROOT_PASSWORD: memorylab_ci
           MYSQL_ROOT_HOST: '%'
@@ -41,7 +47,8 @@ jobs:
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping --host=127.0.0.1 --silent"
+          --health-cmd="${{ matrix.healthcheck || 'mysqladmin ping --host=127.0.0.1 --silent' }}"
+          --health-start-period=10s
           --health-interval=10s
           --health-timeout=5s
           --health-retries=5

@@ -260,7 +260,7 @@ class MemorySchemaTest extends TestCase
     }
 
     #[DataProvider('invalidNumbersAndNames')]
-    public function test_mysql_rejects_invalid_sizes_positions_and_blank_names(string $table, array $changes, array $codes): void
+    public function test_database_rejects_invalid_sizes_positions_and_blank_names(string $table, array $changes, array $codes): void
     {
         $scenario = $this->scenario();
         $process = $this->process($scenario);
@@ -288,7 +288,7 @@ class MemorySchemaTest extends TestCase
     }
 
     #[DataProvider('invalidEnumColumns')]
-    public function test_mysql_rejects_unsupported_modes_states_and_event_types(string $table, string $column): void
+    public function test_database_rejects_unsupported_modes_states_and_event_types(string $table, string $column): void
     {
         $scenario = $this->scenario();
         $process = $this->process($scenario);
@@ -339,6 +339,16 @@ class MemorySchemaTest extends TestCase
         $this->assertNull($event->fresh()->process);
         $this->assertNull($event->fresh()->metadata);
         $this->assertSame(SimulationEventType::ScenarioCreated, $event->fresh()->type);
+    }
+
+    public function test_event_metadata_must_be_valid_json_even_when_written_without_a_model(): void
+    {
+        $event = $this->event($this->scenario());
+
+        $this->assertQueryRejected(fn () => DB::table('simulation_events')->where('id', $event->id)->update([
+            'metadata' => '{invalid-json}',
+        ]), DB::connection()->isMaria() ? [4025] : [3140]);
+        $this->assertNull($event->fresh()->metadata);
     }
 
     public function test_a_scenario_with_history_cannot_be_deleted_implicitly(): void
@@ -417,6 +427,10 @@ class MemorySchemaTest extends TestCase
 
     private function assertQueryRejected(callable $operation, array $expectedCodes): void
     {
+        if (DB::connection()->isMaria()) {
+            $expectedCodes = array_map(fn (int $code) => $code === 3819 ? 4025 : $code, $expectedCodes);
+        }
+
         try {
             $operation();
         } catch (QueryException $exception) {
@@ -425,6 +439,6 @@ class MemorySchemaTest extends TestCase
             return;
         }
 
-        $this->fail('MySQL debe rechazar la operación que rompe la integridad del escenario.');
+        $this->fail('La base de datos debe rechazar la operación que rompe la integridad del escenario.');
     }
 }

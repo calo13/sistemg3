@@ -1,6 +1,8 @@
 # Modelo de memoria de MemoryLab
 
-Implementado en la Fase 8 mediante `2026_10_07_160000_create_memory_simulation_tables.php`. Base oficial MySQL, motor InnoDB, claves primarias bigint y timestamps en las siete tablas. La migración comprueba MySQL 8.0.16 o superior antes de crear tablas; rechaza MariaDB y otros drivers.
+Implementado en la Fase 8 mediante `2026_10_07_160000_create_memory_simulation_tables.php`, con InnoDB, claves primarias bigint y timestamps en las siete tablas. La implementación y las verificaciones originales utilizaron MySQL oficial; sus evidencias históricas conservan ese entorno.
+
+La compatibilidad actual admite MySQL >= 8.0.16 o MariaDB >= 10.4.3, con drivers `mysql` o `mariadb`. La migración y `memorylab:database` comprueban motor y versión antes de crear las tablas del dominio. Ambos motores conservan las restricciones CHECK y las claves foráneas del modelo. [Laravel 12](https://laravel.com/framework/docs/12.x/database) admite MariaDB desde 10.3; MemoryLab requiere 10.4.3 porque esa versión incorpora automáticamente la validación JSON del esquema, según sus [notas de versión](https://mariadb.com/docs/release-notes/community-server/old-releases/10.4/10.4.3). Así se conserva la integridad de `simulation_events.metadata` junto con las [restricciones de MariaDB](https://mariadb.com/docs/server/reference/sql-statements/data-definition/constraint), sin variantes del esquema ni omisión de controles. `10.6.28-MariaDB`, informada por el hosting, satisface el mínimo de compatibilidad. Los mínimos técnicos no sustituyen la elección de una versión mantenida ni la comprobación de la instalación de destino.
 
 ## Relaciones
 
@@ -104,7 +106,7 @@ Eventos: occurred_at es DATETIME(6), obligatorio y proporcionado por el código 
 | SegmentStatus | ACTIVE, RELEASED |
 | SimulationEventType | PROCESS_CREATED, PAGE_REQUEST, PAGE_HIT, PAGE_FAULT, PAGE_LOADED, SEGMENT_ACCESS, SEGMENTATION_FAULT, MEMORY_RESET, SCENARIO_CREATED, MEMORY_CONFIGURED, PROCESS_TERMINATED |
 
-Los valores se restringen con ENUM de MySQL y se convierten a enums PHP en los modelos. Los enums de PHP no sustituyen la validación de entrada ni la autorización de los futuros módulos.
+Los valores se restringen con ENUM de MySQL/MariaDB y se convierten a enums PHP en los modelos. Los enums de PHP no sustituyen la validación de entrada ni la autorización de los futuros módulos.
 
 ## Integridad implementada
 
@@ -120,7 +122,7 @@ Los valores se restringen con ENUM de MySQL y se convierten a enums PHP en los m
 - Las referencias del dominio usan RESTRICT al borrar. Los procesos asociados a historial se conservan y pueden pasar a TERMINATED; no se elimina su historial implícitamente.
 - Creador del escenario y usuario del evento admiten null y usan SET NULL al borrar una cuenta, preservando el escenario y los eventos. Las FK compuestas del proceso usan RESTRICT, pues scenario_id sigue siendo obligatorio.
 
-Las FK con columnas nullable siguen la semántica de [MySQL para claves foráneas](https://dev.mysql.com/doc/refman/8.0/en/ansi-diff-foreign-keys.html). Los CHECK validan reglas de la fila; no consultan otras tablas, conforme a las [restricciones de CHECK](https://dev.mysql.com/doc/refman/8.0/en/create-table-check-constraints.html).
+Las FK con columnas nullable siguen la semántica de [MySQL para claves foráneas](https://dev.mysql.com/doc/refman/8.0/en/ansi-diff-foreign-keys.html) y las [restricciones de MariaDB](https://mariadb.com/docs/server/reference/sql-statements/data-definition/constraint). Los CHECK validan reglas de la fila; no consultan otras tablas, conforme a las [restricciones de CHECK en MySQL](https://dev.mysql.com/doc/refman/8.0/en/create-table-check-constraints.html) y su aplicación en MariaDB. La compatibilidad del hosting mantiene estas restricciones; no se omiten para permitir la instalación.
 
 ## Índices y consultas previstas
 

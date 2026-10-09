@@ -1,5 +1,6 @@
 <?php
 
+use App\Support\DatabaseCompatibility;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -9,16 +10,13 @@ return new class extends Migration
 {
     public function up(): void
     {
-        if (DB::connection()->getDriverName() !== 'mysql') {
-            throw new RuntimeException('El modelo de MemoryLab requiere MySQL 8.0.16 o superior.');
+        $driver = DB::connection()->getDriverName();
+        if (! in_array($driver, ['mysql', 'mariadb'], true)) {
+            throw new RuntimeException('MemoryLab requiere MySQL 8.0.16 o superior, o MariaDB 10.4.3 o superior.');
         }
 
         $version = DB::selectOne('SELECT VERSION() AS version')->version;
-        if (stripos($version, 'MariaDB') !== false
-            || ! preg_match('/^\d+\.\d+\.\d+/', $version, $matches)
-            || version_compare($matches[0], '8.0.16', '<')) {
-            throw new RuntimeException('Utiliza MySQL 8.0.16 o superior para aplicar las restricciones CHECK.');
-        }
+        DatabaseCompatibility::assertSupported($driver, $version);
 
         Schema::create('scenarios', function (Blueprint $table) {
             $table->engine('InnoDB');
