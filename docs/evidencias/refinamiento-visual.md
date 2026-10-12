@@ -2,6 +2,8 @@
 
 Fecha: 2026-10-09.
 
+Esta evidencia conserva el refinamiento del 9 de octubre. El usuario solicitó después una portada con más interacción; la versión del 12 de octubre se documenta en [portada interactiva](portada-interactiva.md).
+
 ## Solicitud
 
 El usuario pidió mejorar los efectos de carga y el diseño de la portada. Durante el ajuste añadió una captura del dashboard y señaló que sus colores se veían apagados. Solicitó realizar un commit al terminar. Se mantuvieron la paleta elegida anteriormente —azul marino, rojo y blanco—, el escudo original de la UMG y la plantilla Sneat.

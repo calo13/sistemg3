@@ -2,7 +2,7 @@
 
 Fecha de registro: **8 de octubre de 2026**.
 
-Última actualización: **9 de octubre de 2026**.
+Última actualización: **12 de octubre de 2026**.
 
 Este documento reúne instrucciones reales, decisiones y correcciones conservadas durante el desarrollo asistido por IA. Los extractos literales se identifican como citas; los resúmenes se indican como tales. La solicitud extensa permanece en [solicitud-inicial.md](evidencias/solicitud-inicial.md), y cada fase conserva implementación, comprobaciones y capturas. No se reconstruye una conversación que no esté disponible ni se añaden prompts ficticios.
 
@@ -76,6 +76,7 @@ Esta instrucción sustituyó la pausa de aprobación entre fases y mantuvo su de
 9. **Ajuste visual solicitado sobre la primera portada.** El usuario rechazó el bloque ilustrativo de RAM y pidió reemplazarlo por el escudo, respetar Sneat, animar la portada y añadir un icono de pestaña. Se mantuvo Public Sans con pesos locales y componentes de la plantilla, y se añadieron animaciones progresivas con adaptación a movimiento reducido. La compilación, 18 pruebas y la comprobación de navegador en cuatro tamaños aprobaron. [Cambios y capturas](evidencias/ajuste-portada-umg.md).
 10. **Cuenta administradora para continuar aprendiendo.** El usuario pidió un seeder con la contraseña inicial `123`, conservando el correo solicitado anteriormente. Se creó `AdminUserSeeder` para ejecución explícita, separado de la demostración y del seeder general. Se verificaron login, permisos, repetición y conservación de cuentas/escenarios existentes; 44 pruebas aprobaron. [Alcance y resultados](evidencias/seeder-administrador.md).
 11. **Entradas entrecortadas y panel con poco color.** El usuario pidió mejorar los efectos de carga y el diseño de la portada, añadió una captura del panel para señalar sus colores apagados y solicitó un commit al terminar. Se integró el escudo en una presentación azul marino más compacta; los textos y acciones aparecen juntos, con una variación breve de opacidad por bloque. El panel recibió una bienvenida institucional, menú activo azul e indicadores con acentos e iconos de colores. La revisión visual detectó una regla de Sneat que sobrescribía el fondo de los iconos y se corrigió dentro del panel. Se aprobaron 75 pruebas, la compilación y la revisión de navegador en escritorio y móvil. [Cambios, capturas y resultados](evidencias/refinamiento-visual.md).
+12. **Portada con más interacción.** El usuario pidió que la página se sintiera más como un sitio web y especificó hover de botones con escala 1,05, subrayado del menú, elevación de tarjetas, spinner CSS y una microinteracción. Se amplió la presentación a una franja completa, se mantuvo el menú visible en móvil y se añadieron enlaces de práctica a las tarjetas. El pulso se aplica al botón de entrada; el spinner responde a una navegación real sin retrasarla. Se aprobaron nueve pruebas y la comprobación de hover, navegación, regreso con Atrás, cuatro tamaños, movimiento reducido y contenido sin JavaScript. [Diseño y verificación](evidencias/portada-interactiva.md).
 
 Estas correcciones muestran la necesidad de revisar resultados, permisos y pantallas reales: una respuesta HTTP correcta o una propuesta de IA no acredita por sí sola el comportamiento visual y persistente.
 

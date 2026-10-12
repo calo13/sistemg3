@@ -15,30 +15,32 @@
                     <a href="#como-funciona">Cómo empezar</a>
                     <a href="#equipo">Integrantes</a>
                 </nav>
-                <a class="btn btn-primary btn-sm ml-header-access" href="{{ auth()->check() ? route('dashboard') : route('login') }}">
+                <a class="btn btn-primary btn-sm ml-header-access" href="{{ auth()->check() ? route('dashboard') : route('login') }}" data-ml-loading-link>
                     {{ auth()->check() ? 'Ir al panel' : 'Iniciar sesión' }} <x-home-icon name="arrow" />
                 </a>
             </div>
         </header>
 
-        <div class="ml-container ml-page-content">
-            <section id="explora" class="card ml-intro" aria-labelledby="ml-hero-title" data-ml-reveal>
-                <div class="ml-hero-copy bg-primary text-white">
-                    <div class="ml-intro-heading"><p class="ml-intro-label">Simulador interactivo</p><span class="badge bg-danger">{{ $academic['group'] }}</span></div>
+        <section id="explora" class="ml-hero-band" aria-labelledby="ml-hero-title">
+            <div class="ml-container ml-intro" data-ml-reveal>
+                <div class="ml-hero-copy">
+                    <div class="ml-intro-heading"><p class="ml-intro-label">{{ $academic['course'] }}</p><span class="badge bg-danger">{{ $academic['group'] }}</span></div>
                     <h1 id="ml-hero-title">Administración<br>de memoria</h1>
                     <p class="ml-hero-description">Estudia cómo un sistema operativo organiza la memoria de sus procesos. Practica paginación, segmentación y traducción de direcciones con escenarios que puedes consultar en el laboratorio.</p>
                     <div class="ml-hero-actions">
-                        <a class="btn btn-light ml-button" href="{{ auth()->check() ? route('dashboard') : route('login') }}">Entrar al simulador <x-home-icon name="arrow" /></a>
+                        <a class="btn btn-danger ml-button ml-primary-action" href="{{ auth()->check() ? route('dashboard') : route('login') }}" data-ml-loading-link>Entrar al simulador <span class="ml-action-icon"><x-home-icon name="arrow" /></span></a>
                         <a class="btn btn-outline-light ml-button" href="#conceptos">Ver conceptos</a>
                     </div>
                     <p class="ml-hero-note"><x-home-icon name="info" />Proyecto educativo · La memoria representada es simulada.</p>
                 </div>
                 <figure class="ml-university">
-                    <img class="ml-university-logo" src="{{ asset('images/umg-logo.png') }}" width="184" height="185" alt="Escudo de la Universidad Mariano Gálvez de Guatemala" decoding="async">
+                    <img class="ml-university-logo" src="{{ asset('images/umg-logo.png') }}" width="220" height="221" alt="Escudo de la Universidad Mariano Gálvez de Guatemala" decoding="async">
                     <figcaption><strong>{{ $academic['university'] }}</strong><span>{{ $academic['degree'] }}</span></figcaption>
                 </figure>
-            </section>
+            </div>
+        </section>
 
+        <div class="ml-container ml-page-content">
             <section id="conceptos" class="ml-section" aria-labelledby="ml-concepts-title">
                 <div class="ml-section-heading"><div><h2 id="ml-concepts-title">Conceptos del simulador</h2><p>Los temas que puedes practicar en los módulos.</p></div></div>
                 <div class="ml-concept-grid" data-ml-reveal>
@@ -46,16 +48,19 @@
                         <div class="ml-concept-title"><span class="ml-concept-glyph"><i class="bx bx-grid-alt" aria-hidden="true"></i></span><h3>Paginación</h3></div>
                         <p>Divide un proceso en páginas de igual tamaño. La tabla de páginas indica en qué marco de RAM se encuentra cada página presente.</p>
                         <div class="ml-concept-tags"><span class="badge bg-label-primary">Páginas y marcos</span><span class="badge bg-label-secondary">FIFO</span></div>
+                        <a class="ml-concept-link" href="{{ auth()->check() ? route('paging.index') : route('login') }}" data-ml-loading-link>Practicar paginación <x-home-icon name="arrow" /></a>
                     </article>
                     <article class="card ml-concept-card">
                         <div class="ml-concept-title"><span class="ml-concept-glyph ml-concept-glyph-red"><x-home-icon name="layers" /></span><h3>Segmentación</h3></div>
                         <p>Organiza un proceso en partes, como código, datos y pila. Cada segmento tiene una dirección base y un límite para validar los accesos.</p>
                         <div class="ml-concept-tags"><span class="badge bg-label-primary">Base</span><span class="badge bg-label-secondary">Límite</span></div>
+                        <a class="ml-concept-link" href="{{ auth()->check() ? route('segmentation.index') : route('login') }}" data-ml-loading-link>Practicar segmentación <x-home-icon name="arrow" /></a>
                     </article>
                     <article class="card ml-concept-card">
                         <div class="ml-concept-title"><span class="ml-concept-glyph"><x-home-icon name="map" /></span><h3>Traducción de direcciones</h3></div>
                         <p>Calcula dónde está un dato en la RAM a partir de la dirección que utiliza el proceso y de la información de su tabla.</p>
                         <div class="ml-concept-tags"><span class="badge bg-label-primary">Dirección lógica</span><span class="badge bg-label-secondary">Dirección física</span></div>
+                        <a class="ml-concept-link" href="{{ auth()->check() ? route('translation.index') : route('login') }}" data-ml-loading-link>Calcular una dirección <x-home-icon name="arrow" /></a>
                     </article>
                 </div>
             </section>
@@ -85,13 +90,17 @@
                 <div class="ml-closing" data-ml-reveal>
                     <div><h2>Continuar al simulador</h2><p>Accede a los escenarios disponibles desde el panel.</p></div>
                     <div class="ml-closing-actions">
-                        <a class="btn btn-primary ml-button" href="{{ auth()->check() ? route('dashboard') : route('login') }}">Abrir MemoryLab <x-home-icon name="arrow" /></a>
+                        <a class="btn btn-primary ml-button" href="{{ auth()->check() ? route('dashboard') : route('login') }}" data-ml-loading-link>Abrir MemoryLab <x-home-icon name="arrow" /></a>
                         @guest
-                            @if (Route::has('register'))<a class="ml-create-account" href="{{ route('register') }}">Crear una cuenta</a>@endif
+                            @if (Route::has('register'))<a class="ml-create-account" href="{{ route('register') }}" data-ml-loading-link>Crear una cuenta</a>@endif
                         @endguest
                     </div>
                 </div>
             </section>
+        </div>
+        <div class="ml-navigation-loader" role="status" aria-live="polite" aria-atomic="true" hidden>
+            <span class="ml-spinner" aria-hidden="true"></span>
+            <span>Abriendo el simulador…</span>
         </div>
     </div>
 </x-guest-layout>
