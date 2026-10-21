@@ -2,7 +2,9 @@
 
 Simulador educativo de administración de memoria — Universidad Mariano Gálvez, Ingeniería en Sistemas, Sistemas Operativos 1, Grupo 3.
 
-## Estado actual: Fases 0–31 y manual adicional completos
+## Estado actual: Fases 0–31 y guías adicionales completas
+
+La [guía de exposición de una hora](docs/guion-exposicion-60-minutos.md) está disponible también como [PDF de 28 páginas](output/pdf/memorylab-guion-exposicion-60-minutos.pdf). Reparte cinco turnos de 12 minutos con texto literal, diapositivas, campos y clics, resultados esperados y preguntas. Es un documento de apoyo separado de las cuatro descargas del menú Entregables académicos.
 
 La portada incorpora el escudo de la UMG en una franja azul marino, los cinco integrantes en una tabla y tarjetas con explicaciones y acceso a los módulos. Mantiene Public Sans y componentes de Sneat, con menú fijo visible en móvil, subrayado animado, elevación de botones/tarjetas, pulso en la acción principal e indicador de carga al navegar. El panel utiliza una bienvenida azul, menú activo azul y acentos de color en los indicadores. La interfaz conserva azul marino, rojo y blanco y un pie académico. [Capturas, verificación e instrucciones para actualizar los recursos del hosting](docs/evidencias/portada-interactiva.md).
 

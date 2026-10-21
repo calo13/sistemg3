@@ -1,0 +1,216 @@
+{
+  "pdf": "output/pdf/memorylab-guion-exposicion-60-minutos.pdf",
+  "editable_source": "docs/guion-exposicion-60-minutos.md",
+  "page_count": 28,
+  "page_text_characters": [
+    2339,
+    2593,
+    2274,
+    2287,
+    2229,
+    2194,
+    2050,
+    2149,
+    2079,
+    2017,
+    2228,
+    1961,
+    2015,
+    2226,
+    2269,
+    2140,
+    2375,
+    2131,
+    2297,
+    2247,
+    2391,
+    2335,
+    2239,
+    1625,
+    1529,
+    1958,
+    2462,
+    2813
+  ],
+  "speech_words_by_person": {
+    "Enmer": 948,
+    "Lester": 1008,
+    "Deivid": 1010,
+    "Rebeca": 996,
+    "Carlos": 1038
+  },
+  "speech_minutes_at_110_125_wpm": {
+    "Enmer": [
+      7.58,
+      8.62
+    ],
+    "Lester": [
+      8.06,
+      9.16
+    ],
+    "Deivid": [
+      8.08,
+      9.18
+    ],
+    "Rebeca": [
+      7.97,
+      9.05
+    ],
+    "Carlos": [
+      8.3,
+      9.44
+    ]
+  },
+  "section_pages": [
+    {
+      "title": "Reparto del tiempo",
+      "page": 1
+    },
+    {
+      "title": "Cómo usar el guion",
+      "page": 1
+    },
+    {
+      "title": "Preparación antes de que empiece el reloj",
+      "page": 2
+    },
+    {
+      "title": "Pantallas que vamos a utilizar",
+      "page": 2
+    },
+    {
+      "title": "Uso de las doce diapositivas existentes",
+      "page": 3
+    },
+    {
+      "title": "Datos que deben permanecer iguales",
+      "page": 3
+    },
+    {
+      "title": "Enmer de 00 a 03 minutos",
+      "page": 4
+    },
+    {
+      "title": "Enmer de 03 a 06 minutos",
+      "page": 5
+    },
+    {
+      "title": "Enmer de 06 a 09 minutos",
+      "page": 6
+    },
+    {
+      "title": "Enmer de 09 a 12 minutos",
+      "page": 7
+    },
+    {
+      "title": "Lester de 12 a 15 minutos",
+      "page": 8
+    },
+    {
+      "title": "Lester de 15 a 18 minutos",
+      "page": 9
+    },
+    {
+      "title": "Lester de 18 a 21 minutos",
+      "page": 10
+    },
+    {
+      "title": "Lester de 21 a 24 minutos",
+      "page": 11
+    },
+    {
+      "title": "Deivid de 24 a 27 minutos",
+      "page": 12
+    },
+    {
+      "title": "Deivid de 27 a 30 minutos",
+      "page": 13
+    },
+    {
+      "title": "Deivid de 30 a 33 minutos",
+      "page": 14
+    },
+    {
+      "title": "Deivid de 33 a 36 minutos",
+      "page": 15
+    },
+    {
+      "title": "Rebeca de 36 a 39 minutos",
+      "page": 16
+    },
+    {
+      "title": "Rebeca de 39 a 42 minutos",
+      "page": 17
+    },
+    {
+      "title": "Rebeca de 42 a 45 minutos",
+      "page": 18
+    },
+    {
+      "title": "Rebeca de 45 a 48 minutos",
+      "page": 19
+    },
+    {
+      "title": "Carlos de 48 a 51 minutos",
+      "page": 20
+    },
+    {
+      "title": "Carlos de 51 a 54 minutos",
+      "page": 21
+    },
+    {
+      "title": "Carlos de 54 a 57 minutos",
+      "page": 22
+    },
+    {
+      "title": "Carlos de 57 a 60 minutos",
+      "page": 23
+    },
+    {
+      "title": "Hoja rápida de resultados de paginación",
+      "page": 24
+    },
+    {
+      "title": "Dos traducciones que deben poder explicar",
+      "page": 24
+    },
+    {
+      "title": "Estado final",
+      "page": 24
+    },
+    {
+      "title": "Hoja rápida de segmentación y comparación",
+      "page": 25
+    },
+    {
+      "title": "Comparador con huecos de 3 y 6 KB",
+      "page": 25
+    },
+    {
+      "title": "Preguntas que puede hacer el docente",
+      "page": 26
+    },
+    {
+      "title": "Más respuestas y manejo del tiempo",
+      "page": 27
+    },
+    {
+      "title": "Si el ritmo no coincide con el reloj",
+      "page": 27
+    },
+    {
+      "title": "Qué hacer si algo no coincide durante la demostración",
+      "page": 28
+    },
+    {
+      "title": "Comprobación final del ensayo",
+      "page": 28
+    }
+  ],
+  "sha256": "369eb6c636c5fc0c12f1faf3a0163a3caa2e26146036c73a36a73c389b31124a",
+  "source_sha256": "4611dd415832e5edc2a668480c8c95dbbd0f10301860d7b9f71e92ad06944447",
+  "application_or_database_operations": false,
+  "visual_review": "All 28 rendered pages inspected; no clipping, overlaps, broken glyphs or table overflow.",
+  "rendered_page_count": 28,
+  "speaking_word_count_includes_optional_carlos_answers": true
+}

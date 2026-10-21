@@ -30,3 +30,6 @@ Cada fase conserva análisis, cambios acotados y verificación antes de continua
 | 31: video demostrativo | Completada; 180 segundos, 19 escenas, 33 capturas reales, reproducción y metadatos verificados |
 | Entrega adicional: manual de uso | Completada; PDF de ocho páginas, cuatro capturas reales, ejercicios y guion académico de 14 minutos; revisión visual aprobada |
 | Integración de entregables | Completada; 27 pruebas y 243 aserciones, descarga de los cuatro archivos para los tres roles y reproducción HTTP del video verificadas |
+| Guion de exposición de una hora | Completado; cinco turnos de 12 minutos, PDF de 28 páginas, texto literal y demostraciones contrastadas con las vistas y servicios; revisión visual de todas las páginas |
+
+La [guía editable](guion-exposicion-60-minutos.md) y el [PDF para imprimir](../output/pdf/memorylab-guion-exposicion-60-minutos.pdf) incluyen el reparto de integrantes, las diapositivas, los datos de cada formulario, cálculos, hojas rápidas y preguntas. El recorrido utiliza escenarios nuevos y conserva los ensayos anteriores. [Verificación](evidencias/guion-exposicion.md).
