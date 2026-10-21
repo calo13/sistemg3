@@ -4,40 +4,40 @@
   "page_count": 28,
   "page_text_characters": [
     2339,
-    2593,
-    2274,
+    2618,
+    1776,
     2287,
-    2229,
-    2194,
-    2050,
-    2149,
-    2079,
-    2017,
-    2228,
-    1961,
-    2015,
-    2226,
-    2269,
-    2140,
-    2375,
-    2131,
-    2297,
-    2247,
-    2391,
-    2335,
-    2239,
+    2242,
+    2181,
+    2109,
+    2156,
+    2130,
+    2066,
+    2276,
+    1945,
+    1962,
+    2270,
+    2296,
+    2144,
+    2402,
+    2158,
+    2324,
+    2190,
+    2418,
+    2445,
+    2270,
     1625,
     1529,
     1958,
-    2462,
-    2813
+    2457,
+    2835
   ],
   "speech_words_by_person": {
     "Enmer": 948,
-    "Lester": 1008,
-    "Deivid": 1010,
+    "Lester": 1009,
+    "Deivid": 1009,
     "Rebeca": 996,
-    "Carlos": 1038
+    "Carlos": 1029
   },
   "speech_minutes_at_110_125_wpm": {
     "Enmer": [
@@ -45,20 +45,20 @@
       8.62
     ],
     "Lester": [
-      8.06,
-      9.16
+      8.07,
+      9.17
     ],
     "Deivid": [
-      8.08,
-      9.18
+      8.07,
+      9.17
     ],
     "Rebeca": [
       7.97,
       9.05
     ],
     "Carlos": [
-      8.3,
-      9.44
+      8.23,
+      9.35
     ]
   },
   "section_pages": [
@@ -79,7 +79,7 @@
       "page": 2
     },
     {
-      "title": "Uso de las doce diapositivas existentes",
+      "title": "Presentación de veinticuatro diapositivas",
       "page": 3
     },
     {
@@ -207,10 +207,10 @@
       "page": 28
     }
   ],
-  "sha256": "369eb6c636c5fc0c12f1faf3a0163a3caa2e26146036c73a36a73c389b31124a",
-  "source_sha256": "4611dd415832e5edc2a668480c8c95dbbd0f10301860d7b9f71e92ad06944447",
+  "sha256": "9abd6188a7a4516776a538195c81cf558643494374083c5e57bccf1ff1179db0",
+  "source_sha256": "2e634410d273afe26938bf21f075cc1a4c6aaad2d4e074e609d59e9cf76eb063",
   "application_or_database_operations": false,
-  "visual_review": "All 28 rendered pages inspected; no clipping, overlaps, broken glyphs or table overflow.",
+  "visual_review": "All 28 updated rendered pages inspected; no clipping, overlaps, broken glyphs or table overflow.",
   "rendered_page_count": 28,
   "speaking_word_count_includes_optional_carlos_answers": true
 }

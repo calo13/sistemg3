@@ -32,7 +32,7 @@ Cada integrante habla durante su turno y puede manejar la aplicación. Si result
 
 1. Abrir **http://localhost/sistemg3/public/** y comprobar que carguen el logo, el menú y los estilos.
 2. Iniciar sesión con la cuenta **Administrador** que ya utiliza el grupo. Usar su contraseña vigente. Se necesita ese rol para crear escenarios y mostrar todos los formularios.
-3. Abrir la presentación existente: **output/presentations/memorylab-presentacion.pptx**. Tener también esta guía disponible. Usar **Alt + Tab** para pasar entre la presentación y el navegador; comprobarlo antes de iniciar.
+3. Abrir la presentación de esta guía: **output/presentations/memorylab-presentacion-exposicion-60-minutos.pptx**. Tener también esta guía disponible. Usar **Alt + Tab** para pasar entre la presentación y el navegador; comprobarlo antes de iniciar.
 4. Decidir cuál será el nombre nuevo de los escenarios. En este documento usaremos **Exposición G3 Paginación 01** y **Exposición G3 Segmentación 01**. Para otro ensayo, cambiar 01 por 02 y crear escenarios nuevos; anotar sus números **#ID**.
 5. Empezar con la portada de la presentación. Dejar la sesión de la app abierta, sin solicitar páginas del escenario que van a exponer.
 6. Tener una hoja para escribir estos cálculos: **4 ÷ 1 = 4 marcos**, **3500 = 3 × 1024 + 428**, **2 × 1024 + 428 = 2476**, **1 × 1024 + 100 = 1124**, **8192 - 7500 = 692**.
@@ -61,28 +61,21 @@ Todas estas rutas se agregan a **http://localhost/sistemg3/public**. Se pueden a
 
 <!-- pagebreak -->
 
-## Uso de las doce diapositivas existentes
+## Presentación de veinticuatro diapositivas
 
 La presentación acompaña la explicación; el navegador demuestra los resultados. No es necesario mantener una lámina en pantalla mientras se llenan formularios.
 
-| Diapositiva | Tema y momento de uso |
-| --- | --- |
-| 1 · MemoryLab | Enmer abre la exposición en 00:00 |
-| 2 · Equipo de trabajo | Enmer presenta a los cinco integrantes |
-| 3 · Objetivos del simulador | Enmer explica qué se demostrará |
-| 4 · Arquitectura de la aplicación | Enmer explica pantalla, servidor y persistencia brevemente |
-| 5 · Modelo persistente de memoria | Enmer explica que tablas, mapa y eventos comparten un estado guardado |
-| 6 · Paginación páginas y marcos | Lester introduce página y marco; después muestra la app |
-| 7 · PAGE_HIT PAGE_FAULT y FIFO | Lester explica Hit y Fault; Deivid retoma FIFO |
-| 8 · Traducción de dirección lógica | Deivid presenta la fórmula y después usa la tabla actual de la app |
-| 9 · Segmentación base y límite | Rebeca introduce Código y sus límites |
-| 10 · Comparación con la misma RAM | Carlos presenta el problema de los huecos |
-| 11 · Roles y verificación del proyecto | Carlos explica permisos y evidencia de pruebas |
-| 12 · Conclusiones y demostración | Carlos cierra y abre preguntas |
+| Diapositivas | Integrante | Temas |
+| --- | --- | --- |
+| 1 a 7 | Enmer de 00 a 12 minutos | Portada, equipo, objetivos, página y marco, aplicación, configuración y proceso |
+| 8 a 11 | Lester de 12 a 24 minutos | Tabla inicial, Page Fault paso a paso, carga de RAM y Page Hit |
+| 12 a 15 | Deivid de 24 a 36 minutos | FIFO, traducción de 3500, página ausente y regreso de P0 |
+| 16 a 19 | Rebeca de 36 a 48 minutos | Escenario de segmentación, tabla, accesos válidos y límite inválido |
+| 20 a 24 | Carlos de 48 a 60 minutos | Comparación, fragmentación, IA, conclusiones y preguntas |
 
-**Cifras de las láminas.** La 6 ilustra RAM de 16 KB; en vivo elegimos 4 KB para llenarla rápidamente. La 8 usa la tabla ilustrativa P1 a marco 5: 1124 se traduce a 5220. En nuestro escenario, P3 estará en marco 2 y 3500 se traducirá a 2476. La 10 muestra una solicitud de 7168; en vivo compararemos 8192 y 7500. Son ejemplos distintos de las mismas reglas. El guion incluye cómo decirlo.
+**Cifras de las láminas.** La presentación utiliza los mismos valores del recorrido: RAM de 4 KB en paginación, Chrome de 6 KB, P3 en marco 2 y traducción de 3500 a 2476. La comparación muestra solicitudes de 8192 y 7500. Las tablas son estados esperados de este ejemplo; se comprueban en la aplicación durante las demostraciones.
 
-**Pruebas históricas.** Las 655 pruebas, una omisión y 4575 aserciones de la diapositiva 11 son el resultado documentado del 8 de octubre. Presentarlo como evidencia de esa revisión, sin decir que se ejecutó durante la exposición ni que es un conteo actualizado hoy.
+**Pruebas históricas.** Las 655 pruebas, una omisión y 4575 aserciones de la diapositiva 22 son el resultado documentado del 8 de octubre. Presentarlo como evidencia de esa revisión, sin decir que se ejecutó durante la exposición ni que es un conteo actualizado hoy.
 
 ## Datos que deben permanecer iguales
 
@@ -122,7 +115,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Explicar proceso RAM disco página y marco
 
-**HACER.** Mantener la diapositiva 3 o usar una hoja. Escribir **proceso → página → tabla → marco de RAM**. Debajo escribir **1 KB = 1024 bytes** y **4 KB ÷ 1 KB = 4 marcos**.
+**HACER.** Mostrar la diapositiva 4 y usar una hoja si hace falta. Escribir **proceso → página → tabla → marco de RAM**. Debajo escribir **1 KB = 1024 bytes** y **4 KB ÷ 1 KB = 4 marcos**.
 
 **DECIR.**
 
@@ -148,7 +141,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Presentar la aplicación y sus reglas
 
-**HACER.** Mostrar brevemente diapositivas 4 y 5; después pasar al navegador y abrir **Inicio**. Señalar el menú de **Configuración de memoria**, **Procesos**, **Paginación** y **Segmentación**.
+**HACER.** Mostrar la diapositiva 5; después pasar al navegador y abrir **Inicio**. Señalar el menú de **Configuración de memoria**, **Procesos**, **Paginación** y **Segmentación**.
 
 **DECIR.**
 
@@ -176,7 +169,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Crear el escenario y el proceso
 
-**HACER.** En **Configuración de memoria**, llenar:
+**HACER.** Mostrar la diapositiva 6. Pasar a **Configuración de memoria** y llenar:
 
 | Campo | Escribir |
 | --- | --- |
@@ -185,7 +178,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 | Tamaño de página (KB) | 1 |
 | Almacenamiento secundario (KB) | 16 |
 
-**HACER.** Comprobar **Número de marcos: 4** y pulsar **Guardar configuración** una vez. Anotar el **#ID**. Abrir **Procesos**, comprobar ese escenario y, en **Crear proceso**, ingresar **Nombre: Chrome**, **Tamaño (KB): 6**. Comprobar **Páginas requeridas: 6** y pulsar **Crear proceso** una vez.
+**HACER.** Comprobar **Número de marcos: 4** y pulsar **Guardar configuración** una vez. Anotar el **#ID**. Mostrar la diapositiva 7 y abrir **Procesos**. Comprobar ese escenario y, en **Crear proceso**, ingresar **Nombre: Chrome**, **Tamaño (KB): 6**. Comprobar **Páginas requeridas: 6** y pulsar **Crear proceso** una vez.
 
 **DECIR.**
 
@@ -209,11 +202,11 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Leer la tabla de páginas
 
-**HACER.** Mostrar diapositiva 6 y regresar a **Paginación**. Señalar las columnas **Página**, **Marco**, **Presente** y **Estado**; después señalar los cuatro marcos del mapa.
+**HACER.** Mostrar la diapositiva 8 y regresar a **Paginación**. Señalar las columnas **Página**, **Marco**, **Presente** y **Estado**; después señalar los cuatro marcos del mapa.
 
 **DECIR.**
 
-> Mi nombre es Lester Emilio Pedro Juan. Vamos a utilizar la tabla de páginas para conectar el proceso con la memoria RAM. La lámina presenta un ejemplo de dieciséis marcos; en vivo usamos cuatro para poder llenarlos durante la demostración.
+> Mi nombre es Lester Emilio Pedro Juan. Vamos a utilizar la tabla de páginas para conectar el proceso con la memoria RAM. La lámina muestra el estado inicial que comprobaremos en la aplicación: seis páginas en disco y cuatro marcos disponibles.
 >
 > La primera columna identifica la página dentro de Chrome. La columna Marco indica su ubicación actual en RAM, si tiene una. Presente nos dice si está cargada y Estado muestra RAM o DISCO.
 >
@@ -237,7 +230,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Mostrar el fallo de página paso a paso
 
-**HACER.** Pulsar **Acceder a página**. Se abre el paso 1. Pulsar **Siguiente** una vez después de explicar cada estado hasta llegar al 8; son siete clics en Siguiente. Dejar entre tres y cinco segundos para observar cada paso.
+**HACER.** Mostrar la diapositiva 9 y volver a la aplicación. Pulsar **Acceder a página**. Se abre el paso 1. Pulsar **Siguiente** una vez después de explicar cada estado hasta llegar al 8; son siete clics en Siguiente. Dejar entre tres y cinco segundos para observar cada paso.
 
 **DECIR.**
 
@@ -265,7 +258,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Llenar los cuatro marcos en un orden controlado
 
-**HACER.** En Automático, realizar estas tres solicitudes, una por una, esperando a que termine cada respuesta: **Página 1 · DISCO**, **Página 3 · DISCO**, **Página 2 · DISCO**. Pulsar **Acceder a página** una vez en cada caso. Respetar ese orden.
+**HACER.** Mostrar la diapositiva 10 y volver a Paginación. En Automático, realizar estas tres solicitudes, una por una, esperando a que termine cada respuesta: **Página 1 · DISCO**, **Página 3 · DISCO**, **Página 2 · DISCO**. Pulsar **Acceder a página** una vez en cada caso. Respetar ese orden.
 
 **DECIR.**
 
@@ -296,7 +289,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Mostrar un Page Hit y preparar FIFO
 
-**HACER.** Con la RAM llena, elegir **Página 0 · RAM** y pulsar **Acceder a página** una sola vez. Mantener Automático. Mostrar el resultado y los indicadores.
+**HACER.** Mostrar la diapositiva 11. Con la RAM llena, volver a Paginación, elegir **Página 0 · RAM** y pulsar **Acceder a página** una sola vez. Mantener Automático. Mostrar el resultado y los indicadores.
 
 **DECIR.**
 
@@ -324,7 +317,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Provocar el reemplazo FIFO
 
-**HACER.** Mostrar la parte FIFO de la diapositiva 7 y volver a **Paginación**. Mantener el escenario de la exposición y Chrome. Elegir **Página 4 · DISCO** y pulsar **Acceder a página** en Automático.
+**HACER.** Mostrar la diapositiva 12 y volver a **Paginación**. Mantener el escenario de la exposición y Chrome. Elegir **Página 4 · DISCO** y pulsar **Acceder a página** en Automático.
 
 **DECIR.**
 
@@ -350,11 +343,11 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Traducir la dirección lógica 3500
 
-**HACER.** Mostrar diapositiva 8. Decir la aclaración inicial. Abrir **Traducción de direcciones**, comprobar **Escenario** y elegir **Proceso: Chrome**. En **Dirección en bytes, desde cero**, escribir **3500** y pulsar **Traducir dirección**.
+**HACER.** Mostrar la diapositiva 13. Abrir **Traducción de direcciones**, comprobar **Escenario** y elegir **Proceso: Chrome**. En **Dirección en bytes, desde cero**, escribir **3500** y pulsar **Traducir dirección**.
 
 **DECIR.**
 
-> La lámina utiliza una tabla ilustrativa donde P1 está en el marco cinco. Ahora resolveremos otro ejemplo con la tabla actual de nuestra aplicación. En nuestro escenario solo existen los marcos cero al tres.
+> La lámina muestra la regla de traducción y los valores que esperamos comprobar en nuestra tabla. En este escenario P3 está en el marco dos y solo existen los marcos cero al tres.
 >
 > El número tres mil quinientos es una dirección lógica: la posición del byte que Chrome quiere consultar dentro de su propia memoria. No estamos agregando tres mil quinientos bytes a la RAM y tampoco estamos indicando el tamaño del proceso.
 >
@@ -376,7 +369,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Consultar una página que no está en RAM
 
-**HACER.** Sin cambiar de escenario ni proceso, escribir **100** en **Dirección en bytes, desde cero** y pulsar **Traducir dirección**. Mostrar el aviso de página ausente. Si hace falta, regresar a **Paginación**, seleccionar Chrome y señalar P0 en la tabla, sin solicitarla todavía.
+**HACER.** Mostrar la diapositiva 14. Sin cambiar de escenario ni proceso en la aplicación, escribir **100** en **Dirección en bytes, desde cero** y pulsar **Traducir dirección**. Mostrar el aviso de página ausente. Si hace falta, regresar a **Paginación**, seleccionar Chrome y señalar P0 en la tabla, sin solicitarla todavía.
 
 **DECIR.**
 
@@ -402,7 +395,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Recargar P0 y comprobar que cambió su ubicación
 
-**HACER.** Abrir **Paginación**, comprobar el mismo escenario y seleccionar **Chrome**. En Automático solicitar **Página 0 · DISCO**. Después abrir **Traducción de direcciones**, elegir escenario y Chrome, escribir **100** y pulsar **Traducir dirección**.
+**HACER.** Mostrar la diapositiva 15. Abrir **Paginación**, comprobar el mismo escenario y seleccionar **Chrome**. En Automático solicitar **Página 0 · DISCO**. Después abrir **Traducción de direcciones**, elegir escenario y Chrome, escribir **100** y pulsar **Traducir dirección**.
 
 **DECIR.**
 
@@ -430,7 +423,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Introducir segmentos y crear el segundo escenario
 
-**HACER.** Mostrar diapositiva 9. Abrir **Segmentación**. En **Nuevo escenario**, ingresar **Nombre: Exposición G3 Segmentación 01** y **RAM total (KB): 16**; pulsar **Crear escenario**. Anotar su **#ID**. En **Crear proceso**, ingresar **Nombre: Editor** y **Tamaño del proceso (KB): 4**; pulsar **Crear proceso**.
+**HACER.** Mostrar la diapositiva 16. Abrir **Segmentación**. En **Nuevo escenario**, ingresar **Nombre: Exposición G3 Segmentación 01** y **RAM total (KB): 16**; pulsar **Crear escenario**. Anotar su **#ID**. En **Crear proceso**, ingresar **Nombre: Editor** y **Tamaño del proceso (KB): 4**; pulsar **Crear proceso**.
 
 **DECIR.**
 
@@ -454,7 +447,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Crear los segmentos y leer su tabla
 
-**HACER.** En **Agregar segmento**, completar **Nombre**, **Base (bytes)** y **Tamaño / límite (bytes)**. Pulsar **Agregar segmento** después de cada fila. Completar los campos mientras se explica cada región, con apoyo de otro integrante en el teclado si hace falta, para no sumar toda la lectura y toda la captura como actividades separadas. No modificar el escenario ni el proceso.
+**HACER.** Mostrar la diapositiva 17. En **Agregar segmento**, completar **Nombre**, **Base (bytes)** y **Tamaño / límite (bytes)**. Pulsar **Agregar segmento** después de cada fila. Completar los campos mientras se explica cada región, con apoyo de otro integrante en el teclado si hace falta, para no sumar toda la lectura y toda la captura como actividades separadas. No modificar el escenario ni el proceso.
 
 | Nombre | Base bytes | Tamaño límite bytes |
 | --- | --- | --- |
@@ -485,7 +478,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Acceder dentro del segmento Código
 
-**HACER.** Bajar a **Direccionamiento por segmentación**. En **Segmento**, elegir **0 · Código · límite 1200**. Escribir **100** en **Offset en bytes** y pulsar **Acceder**. Después sustituir el offset por **1199** y pulsar **Acceder** otra vez.
+**HACER.** Mostrar la diapositiva 18. Bajar a **Direccionamiento por segmentación**. En **Segmento**, elegir **0 · Código · límite 1200**. Escribir **100** en **Offset en bytes** y pulsar **Acceder**. Después sustituir el offset por **1199** y pulsar **Acceder** otra vez.
 
 **DECIR.**
 
@@ -511,7 +504,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Rechazar un acceso fuera del límite
 
-**HACER.** Mantener seleccionado Código. Ingresar **1200** en **Offset en bytes** y pulsar **Acceder**. Mostrar el resultado rojo y señalar el límite **1200** y el último offset válido **1199**.
+**HACER.** Mostrar la diapositiva 19. Mantener seleccionado Código. Ingresar **1200** en **Offset en bytes** y pulsar **Acceder**. Mostrar el resultado rojo y señalar el límite **1200** y el último offset válido **1199**.
 
 **DECIR.**
 
@@ -537,13 +530,13 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Comparar una solicitud con los huecos de memoria
 
-**HACER.** Mostrar diapositiva 10. Abrir **Comparación de asignación**. En **Tamaño solicitado en bytes**, ingresar **8192** y pulsar **Comparar asignación**. Señalar los huecos de **3 KB** y **6 KB** y las tres columnas.
+**HACER.** Mostrar la diapositiva 20. Abrir **Comparación de asignación**. En **Tamaño solicitado en bytes**, ingresar **8192** y pulsar **Comparar asignación**. Señalar los huecos de **3 KB** y **6 KB** y las tres columnas.
 
 **DECIR.**
 
 > Soy Carlos Lopez Urizar. Ahora compararemos las tres técnicas con las mismas condiciones iniciales. Esta pantalla tiene un caso calculado independiente de los escenarios que acabamos de crear. Cada comparación parte de la misma distribución y no altera aquellos datos.
 >
-> La lámina muestra una solicitud de siete kilobytes. En vivo probaremos ocho kilobytes para ver el mismo problema con otra cantidad. La RAM del comparador tiene dieciséis kilobytes. Los procesos A y B ocupan siete y quedan nueve libres, repartidos en dos huecos: uno de tres y otro de seis.
+> La lámina muestra la solicitud de ocho kilobytes que vamos a comprobar. La RAM del comparador tiene dieciséis kilobytes. Los procesos A y B ocupan siete y quedan nueve libres, repartidos en dos huecos: uno de tres y otro de seis.
 >
 > Escribimos ocho mil ciento noventa y dos bytes, que equivalen a ocho kilobytes. Hay nueve kilobytes libres en total, pero el mayor espacio continuo tiene seis. Por eso la asignación contigua rechaza la solicitud: necesita colocar el proceso completo en un solo intervalo y no encuentra uno suficiente.
 >
@@ -563,7 +556,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Explicar fragmentación interna y externa
 
-**HACER.** Cambiar **Tamaño solicitado en bytes** a **7500** y pulsar **Comparar asignación**. Señalar **Reserva nueva**, **Fragmentación interna** y **Memoria libre final**. Si queda tiempo, probar **6144** para mostrar que Contigua también puede aceptar una solicitud que cabe en un hueco.
+**HACER.** Mostrar la diapositiva 21. Cambiar **Tamaño solicitado en bytes** a **7500** y pulsar **Comparar asignación**. Señalar **Reserva nueva**, **Fragmentación interna** y **Memoria libre final**. Si queda tiempo, probar **6144** para mostrar que Contigua también puede aceptar una solicitud que cabe en un hueco.
 
 **DECIR.**
 
@@ -589,7 +582,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Explicar construcción verificación y uso de IA
 
-**HACER.** Mostrar diapositiva 11. Si hay tiempo, abrir **Entregables académicos** y señalar **Manual de uso**, **Informe técnico**, **Presentación** y **Video**; no iniciar la reproducción del video de tres minutos. Regresar a la presentación.
+**HACER.** Mostrar la diapositiva 22. Si hay tiempo, abrir **Entregables académicos** y señalar **Manual de uso**, **Informe técnico**, **Presentación** y **Video**; no iniciar la reproducción del video de tres minutos. Regresar a esta presentación de 24 diapositivas. La descarga histórica de la app corresponde al archivo anterior de doce diapositivas.
 
 **DECIR.**
 
@@ -613,7 +606,7 @@ Segmentación: RAM **16 KB**, Editor **4 KB**; Código **1000/1200**, Datos **40
 
 ### Cerrar y responder preguntas dentro de la hora
 
-**HACER.** Mostrar diapositiva 12. Dar el cierre hasta aproximadamente **58:40**. Reservar de **58:40 a 59:40** para una pregunta o dos respuestas muy breves; terminar a **60:00**.
+**HACER.** Mostrar la diapositiva 23 para el cierre hasta aproximadamente **58:40**. Pasar a la diapositiva 24 y reservar de **58:40 a 59:40** para una pregunta o dos respuestas muy breves; terminar a **60:00**.
 
 **DECIR para cerrar.**
 
@@ -768,7 +761,7 @@ Como cualquier aplicación web utiliza recursos normales para funcionar, pero la
 
 **Si van adelantados.** Pedir al público que prediga la víctima de FIFO antes del clic, que encuentre P3 en el mapa o que explique por qué 1200 excede el límite. Darles tiempo para responder y después mostrar el resultado. Repetir ejemplos explicando lo que cambia, sin hacer accesos extra que alteren el orden de carga.
 
-**Si aparece una pregunta larga.** Decir: “Para respetar el tiempo vamos a dar una respuesta breve y podemos ampliar ese punto al terminar”. Reservar la diapositiva 12 y el cierre para el último tramo.
+**Si aparece una pregunta larga.** Decir: “Para respetar el tiempo vamos a dar una respuesta breve y podemos ampliar ese punto al terminar”. Reservar las diapositivas 23 y 24 para el último tramo.
 
 <!-- pagebreak -->
 
@@ -794,4 +787,4 @@ Cada integrante debe poder explicar su tabla sin leer solo las cifras. Ensayar l
 
 Esta guía se elaboró con la solicitud académica, la presentación existente, el manual y la inspección de vistas, servicios y reglas de MemoryLab. No crea escenarios ni modifica datos al abrirla. Su recorrido fue revisado contra el código; el grupo debe practicar los clics en escenarios nuevos antes de exponer.
 
-Fuentes del proyecto: **docs/evidencias/solicitud-inicial.md**, **docs/manual-de-uso.md**, **docs/uso-ia.md**, **config/memorylab.php**, **resources/views/livewire/**, **app/Services/** y **output/presentations/memorylab-presentacion.pptx**.
+Fuentes del proyecto: **docs/evidencias/solicitud-inicial.md**, **docs/manual-de-uso.md**, **docs/uso-ia.md**, **config/memorylab.php**, **resources/views/livewire/**, **app/Services/** y **output/presentations/memorylab-presentacion-exposicion-60-minutos.pptx**.
