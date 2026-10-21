@@ -76,11 +76,26 @@ class AdminUserSeederTest extends TestCase
         $this->assertDatabaseCount('simulation_events', 0);
     }
 
-    public function test_default_seeder_does_not_create_the_practice_account_automatically(): void
+    public function test_default_seeder_prepares_only_the_administrator_and_no_simulation_data(): void
     {
         $this->seed(DatabaseSeeder::class);
 
-        $this->assertDatabaseCount('users', 0);
-        $this->assertDatabaseCount('scenarios', 0);
+        $admin = User::where('email', 'admin@admin.com')->sole();
+        $originalHash = $admin->password;
+        $this->assertTrue(Hash::check('123', $admin->password));
+        $this->assertSame(['administrador'], $admin->getRoleNames()->all());
+        $this->assertTrue($admin->can('memory.configure'));
+
+        $this->seed(DatabaseSeeder::class);
+
+        $this->assertDatabaseCount('users', 1);
+        $this->assertSame($originalHash, $admin->fresh()->password);
+        foreach (['scenarios', 'memory_configurations', 'processes', 'memory_frames', 'pages', 'segments', 'simulation_events'] as $table) {
+            $this->assertDatabaseCount($table, 0);
+        }
+
+        $this->post('/login', ['email' => 'admin@admin.com', 'password' => '123'])
+            ->assertRedirect(route('dashboard', absolute: false));
+        $this->assertAuthenticatedAs($admin);
     }
 }

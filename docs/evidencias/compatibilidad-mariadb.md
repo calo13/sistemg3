@@ -42,7 +42,7 @@ php artisan config:clear
 php artisan migrate --seed --force
 ```
 
-Se conservan `.env`, `APP_KEY` y la base existente. No se necesita `migrate:fresh` ni rollback. `DatabaseSeeder` prepara roles/permisos, sin crear usuarios ni demostraciones. Tras ejecutar los comandos, revisar su salida y `php artisan migrate:status` en el hosting.
+Se conservan `.env`, `APP_KEY` y la base existente. No se necesita `migrate:fresh` ni rollback. En la revisión original, `DatabaseSeeder` preparaba solo roles/permisos; desde el 21 de octubre de 2026 también crea la cuenta administradora de práctica si falta, sin añadir demostraciones ni borrar datos. [Comportamiento actual](seeder-administrador.md). Tras ejecutar los comandos, revisar su salida y `php artisan migrate:status` en el hosting.
 
 No se accedió al servidor del usuario desde esta sesión ni se ejecutaron sus migraciones remotamente.
 

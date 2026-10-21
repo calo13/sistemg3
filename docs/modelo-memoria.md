@@ -343,7 +343,7 @@ La Fase 25 no agrega tablas o migraciones. Presentación aprobó 34 pruebas espe
 
 ## Seeder de demostración implementado en Fase 26
 
-MemoryDemoSeeder es una operación explícita independiente de DatabaseSeeder, que conserva únicamente RolesAndPermissionsSeeder. Requiere una cuenta existente con el rol administrador del guard web, selecciona la de menor ID y bloquea su fila dentro de una transacción con hasta tres intentos. No crea cuentas, cambia roles o modifica contraseñas.
+MemoryDemoSeeder es una operación explícita independiente de DatabaseSeeder. Desde el 21 de octubre de 2026, DatabaseSeeder prepara el catálogo y la cuenta administradora de práctica mediante AdminUserSeeder, sin crear simulaciones. MemoryDemoSeeder requiere una cuenta existente con el rol administrador del guard web, selecciona la de menor ID y bloquea su fila dentro de una transacción con hasta tres intentos. No crea cuentas, cambia roles o modifica contraseñas.
 
 Las constantes PAGING_NAME y SEGMENTATION_NAME identifican «Demostración base: paginación» y «Demostración base: segmentación». Solo se consideran escenarios is_demo con esos nombres; los manuales homónimos y las demás demos se conservan. Si ninguno existe, startDemo prepara la pareja mediante los servicios de Fase 22 y el seeder renombra exclusivamente los IDs recién devueltos. Paginación inicia con 16 marcos, cinco páginas residentes y diez ausentes; segmentación con cuatro segmentos activos y 3600 bytes ocupados.
 

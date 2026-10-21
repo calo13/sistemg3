@@ -31,7 +31,8 @@ class MemoryDemoSeederTest extends TestCase
 
     public function test_default_database_seeder_does_not_prepare_a_demo_even_when_an_administrator_exists(): void
     {
-        $this->user(RoleName::Administrator);
+        $admin = $this->user(RoleName::Administrator);
+        $admin->update(['email' => 'admin@admin.com']);
         $before = $this->domainSignature();
         $accounts = $this->accountsSignature();
 

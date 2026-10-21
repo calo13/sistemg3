@@ -84,7 +84,7 @@ Estas correcciones muestran la necesidad de revisar resultados, permisos y panta
 
 La suite integral de Fase 27 aprobó **655 pruebas**, con **una omisión condicional** y **4.575 aserciones**, en **96,78 segundos**. La omisión corresponde al caso de registro deshabilitado cuando el registro está activo; una prueba independiente verifica el cierre del registro. Pint, sintaxis de 117 archivos PHP, Vite y validación estricta de Composer aprobaron. [Evidencia integral](evidencias/fase-27.md).
 
-Las pruebas utilizan memorylab_testing. La auditoría principal conserva dos cuentas y la historia del proyecto, con un Administrador, tres roles, 13 permisos y los datos de la pareja base. Los fixtures de navegador se limpiaron; no se publican credenciales, .env ni enlaces de recuperación. Las capturas se encuentran junto a la evidencia de cada fase.
+Las pruebas utilizan memorylab_testing. La auditoría de Fase 27 conservó dos cuentas y la historia del proyecto, con un Administrador, tres roles, 13 permisos y los datos de la pareja base. Los fixtures de navegador se limpiaron; las capturas se encuentran junto a la evidencia de cada fase. El 21 de octubre de 2026, por solicitud del usuario, se preparó el inicio local para aprendizaje: la base ya estaba sin usuarios ni simulaciones, y se creó únicamente el administrador de práctica. El seeder general deja esa cuenta y el catálogo sin cargar la demostración. [Alcance y verificaciones actuales](evidencias/seeder-administrador.md). No se incluyen `.env` ni enlaces de recuperación en el repositorio.
 
 ## Alcance y atribución
 

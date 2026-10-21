@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(RolesAndPermissionsSeeder::class);
+        // Start practice with the administrator only; demo scenarios are opt-in.
+        $this->call(AdminUserSeeder::class);
     }
 }

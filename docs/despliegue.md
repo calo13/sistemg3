@@ -79,7 +79,7 @@ php artisan db:seed --class=RolesAndPermissionsSeeder --force
 php artisan migrate:status
 ```
 
-Artisan conserva el registro de migraciones ya aplicadas. El seeder prepara el catálogo de tres roles y 13 permisos, sin crear cuentas ni otorgar Administrador automáticamente. Las migraciones de caché y trabajos pueden seguir pendientes si se utilizaron los comandos por ruta con los drivers indicados. `php artisan migrate --seed --force` es otra forma de aplicar todas las migraciones pendientes y el catálogo de roles/permisos en producción. No usar migrate:fresh, migrate:refresh, db:wipe ni un rollback de esquema para actualizar una instalación que debe conservar sus datos.
+Artisan conserva el registro de migraciones ya aplicadas. El seeder explícito `RolesAndPermissionsSeeder` prepara el catálogo de tres roles y 13 permisos, sin crear cuentas ni otorgar Administrador automáticamente. Las migraciones de caché y trabajos pueden seguir pendientes si se utilizaron los comandos por ruta con los drivers indicados. `php artisan migrate --seed --force` aplica todas las migraciones pendientes y el seeder general: desde el 21 de octubre también prepara la cuenta administradora de práctica si falta, sin añadir simulaciones. No usar migrate:fresh, migrate:refresh, db:wipe ni un rollback de esquema para actualizar una instalación que debe conservar sus datos.
 
 ### Continuar después del rechazo anterior de MariaDB
 
@@ -91,7 +91,7 @@ php artisan config:clear
 php artisan migrate --seed --force
 ```
 
-La actualización incorpora la compatibilidad del motor. Limpiar la configuración permite leer el entorno actual y Artisan continúa las migraciones pendientes; `--seed` llama a `DatabaseSeeder`, que solo prepara roles/permisos. No hace falta `migrate:fresh` ni rollback. Después, comprobar `php artisan memorylab:database` y `php artisan migrate:status`, y completar las verificaciones HTTP de esta guía. Cumplir el mínimo de versión no equivale a haber verificado toda la aplicación en el hosting; conservar esa evidencia por separado del entorno MySQL local de las fases.
+La actualización incorpora la compatibilidad del motor. Limpiar la configuración permite leer el entorno actual y Artisan continúa las migraciones pendientes; `--seed` llama a `DatabaseSeeder`, que prepara roles/permisos y la cuenta administradora de práctica si falta, sin añadir escenarios. No hace falta `migrate:fresh` ni rollback. Después, comprobar `php artisan memorylab:database` y `php artisan migrate:status`, y completar las verificaciones HTTP de esta guía. Cumplir el mínimo de versión no equivale a haber verificado toda la aplicación en el hosting; conservar esa evidencia por separado del entorno MySQL local de las fases.
 
 Para preparar el primer Administrador, habilitar temporalmente el registro cuando sea necesario, registrar una cuenta propia y asignarle el rol con el comando existente:
 
@@ -99,15 +99,15 @@ Para preparar el primer Administrador, habilitar temporalmente el registro cuand
 php artisan memorylab:user-role "tu-correo@ejemplo.com" administrador
 ```
 
-El correo es un marcador que debe sustituirse por la cuenta ya registrada. El comando no crea usuarios ni cambia contraseñas. Preparar las demás cuentas mediante registro y administración de roles, según necesidad; los integrantes académicos del dashboard no son cuentas. Si se deshabilita el registro después, actualizar la caché de configuración. Esta guía no publica ni establece credenciales de acceso.
+El correo es un marcador que debe sustituirse por la cuenta ya registrada. El comando no crea usuarios ni cambia contraseñas. Preparar las demás cuentas mediante registro y administración de roles, según necesidad; los integrantes académicos del dashboard no son cuentas. Si se deshabilita el registro después, actualizar la caché de configuración.
 
-Para la cuenta de práctica solicitada por el usuario existe un seeder independiente, con las credenciales iniciales y el comportamiento descritos en [README](../README.md). Ejecutarlo opcionalmente después de las migraciones:
+Para la cuenta de práctica solicitada por el usuario existe `AdminUserSeeder`, con las credenciales iniciales y el comportamiento descritos en [README](../README.md). `DatabaseSeeder` lo invoca automáticamente; también se puede ejecutar por separado después de las migraciones:
 
 ```sh
 php artisan db:seed --class=AdminUserSeeder --force
 ```
 
-No añade simulaciones ni modifica la contraseña de una cuenta existente. `DatabaseSeeder` no lo ejecuta automáticamente. [Verificación](evidencias/seeder-administrador.md).
+No añade simulaciones ni modifica la contraseña de una cuenta existente. Repetir cualquiera de estos seeders conserva los escenarios y las demás cuentas; no vacía una instalación que ya tenga datos. [Verificación](evidencias/seeder-administrador.md).
 
 ## Servidor web y PHP
 

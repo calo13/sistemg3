@@ -88,7 +88,9 @@ En Direccionamiento por segmentación, Administrador y Operador seleccionan un s
 
 **Entregables académicos:** abre `http://localhost/sistemg3/public/entregables` o utiliza el enlace del menú. Empieza por el **Manual de uso** de ocho páginas, que guía la secuencia de la práctica con conceptos, pantallas y resultados esperados; el **Informe técnico** de nueve páginas documenta fundamentos, arquitectura y resultados del proyecto. También puedes descargar la presentación PowerPoint de doce diapositivas y el video con subtítulos de tres minutos, o reproducir este último en la página. Los cuatro archivos están completos y disponibles. Los tres roles acceden con sus cuatro permisos de consulta. Las descargas y la reproducción utilizan rutas autenticadas con archivos permitidos explícitamente; Apache impide el acceso directo a `output`. La integración aprobó **27 pruebas y 243 aserciones**, y la revisión final de navegador confirmó descargas, reproducción y pantallas de 320 a 1366 píxeles. Evidencia en [docs/evidencias/entregables.md](docs/evidencias/entregables.md).
 
-**Seeder de demostración:** MemoryDemoSeeder se invoca de forma explícita con `php artisan db:seed --class=MemoryDemoSeeder`. Utiliza el Administrador existente de menor ID; si no existe uno o la pareja base es parcial, ambigua o de modos incorrectos, rechaza la operación conservando datos. Los escenarios manuales con esos nombres se conservan y no se interpretan como demo. DatabaseSeeder mantiene únicamente el catálogo de roles/permisos; no prepara esta pareja automáticamente. La pareja base ya se preparó en la instalación local y repetir el seeder se verificó sin cambios.
+**Inicio vacío para aprender:** `php artisan db:seed` prepara los roles/permisos y una cuenta `admin@admin.com`, contraseña inicial `123`, con rol Administrador. En una base nueva no crea escenarios, procesos, páginas, marcos, segmentos ni historial. El 21 de octubre se comprobó la base local vacía y se preparó únicamente esa cuenta. Los integrantes del proyecto siguen visibles como información académica; no son usuarios registrados.
+
+**Seeder de demostración opcional:** MemoryDemoSeeder se invoca de forma explícita con `php artisan db:seed --class=MemoryDemoSeeder`. Utiliza el Administrador existente de menor ID; si no existe uno o la pareja base es parcial, ambigua o de modos incorrectos, rechaza la operación conservando datos. Los escenarios manuales con esos nombres se conservan y no se interpretan como demo. DatabaseSeeder no prepara esta pareja automáticamente. Para aprender desde cero, crear los datos manualmente siguiendo la guía de exposición.
 
 El menú incluye Inicio, Integrantes, Configuración de memoria, Procesos, Paginación, Traducción, Segmentación, Comparación y Mi perfil; los módulos requieren sus permisos y Usuarios y roles aparece con el permiso correspondiente. Integrantes lleva al equipo desde cualquier pantalla del layout. La navbar identifica UMG y permite consultar el rol en el menú de cuenta. Se mantiene el cierre de sesión por POST con CSRF; el pie presenta la identidad académica y los avisos de autoría/licencia de ThemeSelection permanecen en los archivos de la plantilla. La evidencia y capturas académicas originales están en [docs/evidencias/fase-7.md](docs/evidencias/fase-7.md).
 
@@ -110,6 +112,7 @@ Configura `DB_PASSWORD` únicamente en `.env`. El entorno local verificado duran
 & 'C:\xampp\php\php.exe' artisan db:seed --class=RolesAndPermissionsSeeder
 & 'C:\xampp\php\php.exe' artisan migrate --path=database/migrations/2026_10_07_160000_create_memory_simulation_tables.php
 & 'C:\xampp\php\php.exe' artisan migrate --path=database/migrations/2026_10_07_220000_add_loaded_at_to_pages_table.php
+& 'C:\xampp\php\php.exe' artisan db:seed
 npm.cmd ci
 npm.cmd run build
 & 'C:\xampp\php\php.exe' artisan serve --host=127.0.0.1 --port=8000
@@ -131,17 +134,17 @@ php artisan config:clear
 php artisan migrate --seed --force
 ```
 
-Conserva `.env`, `APP_KEY` y los datos existentes. No uses `migrate:fresh` ni rollback para resolver ese rechazo. `--force` permite ejecutar las migraciones en producción; `--seed` invoca `DatabaseSeeder`, que prepara únicamente roles y permisos, sin crear cuentas ni demostraciones. La comprobación `php artisan memorylab:database` acepta ambos motores compatibles y valida sus mínimos. Los pasos completos del servidor están en [docs/despliegue.md](docs/despliegue.md).
+Conserva `.env`, `APP_KEY` y los datos existentes. No uses `migrate:fresh` ni rollback para resolver ese rechazo. `--force` permite ejecutar las migraciones en producción; `--seed` invoca `DatabaseSeeder`, que prepara roles/permisos y la cuenta administradora de práctica si falta, sin crear demostraciones. La comprobación `php artisan memorylab:database` acepta ambos motores compatibles y valida sus mínimos. Los pasos completos del servidor están en [docs/despliegue.md](docs/despliegue.md).
 
-Puedes crear tu cuenta en `http://localhost/sistemg3/public/register` e iniciar sesión en `http://localhost/sistemg3/public/login`. El seeder general no genera cuentas ni contraseñas predeterminadas.
+Puedes iniciar sesión en `http://localhost/sistemg3/public/login` con la cuenta de práctica. El registro en `/register` permite crear otras cuentas cuando se necesiten y esté habilitado.
 
-**Administrador para práctica:** el seeder independiente `AdminUserSeeder` crea `admin@admin.com` con contraseña inicial `123` y rol Administrador. Ejecutarlo de forma explícita:
+**Administrador para práctica:** `DatabaseSeeder` llama a `AdminUserSeeder`, que crea `admin@admin.com` con contraseña inicial `123` y rol Administrador. También puede ejecutarse de forma explícita:
 
 ```sh
 php artisan db:seed --class=AdminUserSeeder
 ```
 
-En producción, añadir `--force`. Prepara los roles/permisos y esta cuenta, sin crear escenarios, procesos ni demostraciones. Repetirlo no duplica la cuenta; si el correo ya existe, conserva su nombre y contraseña y le asigna Administrador. `DatabaseSeeder` no ejecuta este seeder automáticamente.
+En producción, añadir `--force`. Prepara los roles/permisos y esta cuenta, sin crear escenarios, procesos ni demostraciones. Repetirlo no duplica la cuenta; si el correo ya existe, conserva su nombre y contraseña y le asigna Administrador. Los seeders no borran las prácticas ni otras cuentas existentes.
 
 Los registros nuevos reciben Observador en la misma transacción que crea la cuenta. El seeder crea los roles y permisos con el guard `web`, conserva los roles ya asignados y agrega Observador a las cuentas sin rol. Puede repetirse sin crear cuentas ni duplicar el catálogo.
 
